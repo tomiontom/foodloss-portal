@@ -1,25 +1,25 @@
 /* ==========================================================
-   FOOD LOSS PORTAL JAPAN — Main Stylesheet
+   FOOD LOSS PORTAL JAPAN — Main Stylesheet  (Light Theme)
    ========================================================== */
 
 /* ---------- Custom Properties ---------- */
 :root {
-  /* Palette */
-  --c-primary:        #162E20;   /* deep forest green */
-  --c-primary-mid:    #1E4030;
-  --c-primary-light:  #2D6A4F;
-  --c-accent:         #C8793C;   /* warm amber */
-  --c-accent-light:   #E09B5C;
-  --c-bg:             #F5F4F0;   /* warm off-white */
+  /* Palette — light theme */
+  --c-primary:        #1B3C28;   /* dark green — brand / headings */
+  --c-primary-mid:    #2D5A3D;
+  --c-primary-light:  #3D7A52;
+  --c-accent:         #C8793C;   /* orange-amber */
+  --c-accent-light:   #DF9B5A;
+  --c-bg:             #F0EFEB;   /* warm light gray */
   --c-surface:        #FFFFFF;
   --c-text:           #1A1A1A;
-  --c-text-sub:       #505050;
-  --c-text-muted:     #888888;
+  --c-text-sub:       #4C4C4C;
+  --c-text-muted:     #8A8A8A;
   --c-border:         #E0DDD7;
-  --c-border-dark:    #C8C4BC;
+  --c-border-dark:    #C4C0B8;
 
   /* Typography */
-  --font-jp: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Yu Gothic Medium', 'Yu Gothic', sans-serif;
+  --font-jp: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Yu Gothic Medium', sans-serif;
   --font-en: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 
   /* Spacing */
@@ -31,11 +31,11 @@
   --sp-2xl: 6rem;
 
   /* Sizes */
-  --nav-h:       64px;
-  --max-w:       1160px;
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   14px;
+  --nav-h:      64px;
+  --max-w:      1160px;
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  14px;
 
   /* Shadows */
   --sh-sm: 0 1px 4px rgba(0,0,0,0.07);
@@ -66,16 +66,16 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
 .en { font-family: var(--font-en); }
 
 /* ==========================================================
-   HEADER / NAVIGATION
+   HEADER / NAVIGATION  — Light
    ========================================================== */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   height: var(--nav-h);
-  background: var(--c-primary);
-  border-bottom: 2px solid var(--c-primary-light);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
 .header-inner {
@@ -98,14 +98,14 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
 .brand-ja {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--c-primary);
   letter-spacing: 0.02em;
 }
 .brand-en {
   font-family: var(--font-en);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 400;
-  color: rgba(255,255,255,0.6);
+  color: var(--c-text-muted);
   letter-spacing: 0.05em;
 }
 
@@ -120,19 +120,21 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
   padding: 0.35rem 0.7rem;
   font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.82);
+  color: var(--c-text-sub);
   border-radius: var(--radius-sm);
   transition: color 0.2s, background 0.2s;
   white-space: nowrap;
 }
-.nav-main a:hover,
-.nav-main a.active {
-  color: #fff;
-  background: rgba(255,255,255,0.12);
+.nav-main a:hover {
+  color: var(--c-primary);
+  background: var(--c-bg);
 }
 .nav-main a.active {
+  color: var(--c-primary);
+  font-weight: 700;
   border-bottom: 2px solid var(--c-accent);
   border-radius: 0;
+  padding-bottom: calc(0.35rem - 2px);
 }
 
 /* Hamburger */
@@ -147,7 +149,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
   display: block;
   width: 22px;
   height: 2px;
-  background: rgba(255,255,255,0.85);
+  background: var(--c-text-sub);
   border-radius: 2px;
   transition: transform 0.25s, opacity 0.25s;
 }
@@ -156,31 +158,43 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ==========================================================
-   HERO
+   HERO  — Light, typographic
    ========================================================== */
 .hero {
   position: relative;
-  min-height: 88vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  background: var(--c-primary);
+  background: var(--c-bg);
   overflow: hidden;
 }
 
-/* Geometric background accent */
+/* Subtle geometric background */
 .hero-bg-accent {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(44,106,79,0.5) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(200,121,60,0.06) 0%, transparent 55%),
     repeating-linear-gradient(
       -45deg,
       transparent,
-      transparent 40px,
-      rgba(255,255,255,0.018) 40px,
-      rgba(255,255,255,0.018) 41px
+      transparent 48px,
+      rgba(27,60,40,0.028) 48px,
+      rgba(27,60,40,0.028) 49px
     );
   pointer-events: none;
+}
+
+/* Right accent bar */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--c-accent), transparent);
+  opacity: 0.5;
 }
 
 .hero-content {
@@ -191,44 +205,46 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
 
 .hero-tagline {
   margin-bottom: var(--sp-lg);
+  border-left: 5px solid var(--c-accent);
+  padding-left: var(--sp-lg);
 }
 
 .tagline-ja {
-  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--c-primary);
   line-height: 1.25;
   letter-spacing: -0.01em;
 }
 
 .tagline-divider {
-  width: 3rem;
-  height: 2px;
-  background: var(--c-accent);
-  margin-block: var(--sp-md);
+  display: none;
 }
 
 .tagline-en {
   font-family: var(--font-en);
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
   font-weight: 300;
-  color: rgba(255,255,255,0.65);
+  color: var(--c-text-muted);
   line-height: 1.35;
   letter-spacing: 0.01em;
+  margin-top: 0.5rem;
 }
 
 .hero-sub {
-  font-size: clamp(0.875rem, 1.8vw, 1rem);
-  color: rgba(255,255,255,0.6);
+  font-size: clamp(0.875rem, 1.8vw, 0.95rem);
+  color: var(--c-text-sub);
   line-height: 1.85;
   margin-bottom: var(--sp-xl);
   max-width: 520px;
+  padding-left: calc(var(--sp-lg) + 5px);
 }
 
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-sm);
+  padding-left: calc(var(--sp-lg) + 5px);
 }
 
 /* Buttons */
@@ -256,13 +272,13 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
 }
 .btn-ghost {
   background: transparent;
-  color: rgba(255,255,255,0.8);
-  border: 1.5px solid rgba(255,255,255,0.3);
+  color: var(--c-text-sub);
+  border: 1.5px solid var(--c-border-dark);
 }
 .btn-ghost:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.6);
-  color: #fff;
+  background: var(--c-border);
+  border-color: var(--c-primary);
+  color: var(--c-primary);
 }
 
 /* ==========================================================
@@ -396,7 +412,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
   cursor: pointer;
 }
 .content-card:hover {
-  border-color: var(--c-primary-light);
+  border-color: var(--c-accent);
   box-shadow: var(--sh-md);
   transform: translateY(-2px);
 }
@@ -440,9 +456,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
   flex-shrink: 0;
 }
 
-.content-card--about {
-  grid-column: 1 / -1;
-}
+.content-card--about { grid-column: 1 / -1; }
 @media (min-width: 920px) {
   .content-card--about { grid-column: auto; }
 }
@@ -455,7 +469,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
 .updates-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .update-item {
@@ -496,7 +509,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
 }
 
 /* ==========================================================
-   FOOTER
+   FOOTER  — dark green (contrast with light body)
    ========================================================== */
 .site-footer {
   background: var(--c-primary);
@@ -548,7 +561,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
   color: rgba(255,255,255,0.65);
   transition: color 0.2s;
 }
-.footer-nav-col a:hover { color: #fff; }
+.footer-nav-col a:hover { color: var(--c-accent-light); }
 
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
@@ -572,15 +585,15 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
     top: var(--nav-h);
     left: 0;
     right: 0;
-    background: var(--c-primary-mid);
-    border-top: 1px solid rgba(255,255,255,0.1);
+    background: var(--c-surface);
+    border-top: 1px solid var(--c-border);
     padding: var(--sp-sm) 0;
     box-shadow: var(--sh-lg);
   }
   .nav-main.open { display: block; }
   .nav-main ul { flex-direction: column; gap: 0; }
   .nav-main a {
-    padding: 0.7rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
     border-radius: 0;
   }
@@ -592,9 +605,11 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
 }
 
 @media (max-width: 700px) {
-  .hero { min-height: 80vh; }
-  .tagline-ja { font-size: 2rem; }
-  .tagline-en { font-size: 1.2rem; }
+  .hero { min-height: 75vh; }
+  .tagline-ja { font-size: 1.9rem; }
+  .tagline-en { font-size: 1rem; }
+  .hero-tagline { padding-left: var(--sp-md); border-left-width: 4px; }
+  .hero-sub, .hero-cta { padding-left: calc(var(--sp-md) + 4px); }
 
   .update-item {
     grid-template-columns: 4.5rem 1fr;

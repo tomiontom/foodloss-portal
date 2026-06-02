@@ -3,12 +3,13 @@
    (loaded in addition to style.css on inner pages)
    ========================================================== */
 
-/* ---------- Page Hero (compact, dark) ---------- */
+/* ---------- Page Hero (compact, light) ---------- */
 .page-hero {
   position: relative;
-  background: var(--c-primary);
-  padding: 2.5rem 0 3rem;
-  border-bottom: 3px solid var(--c-primary-light);
+  background: var(--c-surface);
+  padding: 2.2rem 0 2.6rem;
+  border-bottom: 1px solid var(--c-border);
+  border-left: 5px solid var(--c-accent);
   overflow: hidden;
 }
 .page-hero::before {
@@ -16,8 +17,8 @@
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
-    -45deg, transparent, transparent 40px,
-    rgba(255,255,255,0.018) 40px, rgba(255,255,255,0.018) 41px
+    -45deg, transparent, transparent 48px,
+    rgba(27,60,40,0.022) 48px, rgba(27,60,40,0.022) 49px
   );
   pointer-events: none;
 }
@@ -26,12 +27,12 @@
 .page-breadcrumb {
   font-family: var(--font-en);
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.4);
+  color: var(--c-text-muted);
   letter-spacing: 0.04em;
   margin-bottom: 0.75rem;
 }
-.page-breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
-.page-breadcrumb a:hover { color: rgba(255,255,255,0.85); }
+.page-breadcrumb a { color: var(--c-text-muted); transition: color 0.2s; }
+.page-breadcrumb a:hover { color: var(--c-accent); }
 .page-breadcrumb .sep { margin: 0 0.4em; }
 
 .page-title {
@@ -41,7 +42,7 @@
   gap: 0.8rem;
   font-size: clamp(1.5rem, 4vw, 2.2rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--c-primary);
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
@@ -49,19 +50,19 @@
   font-family: var(--font-en);
   font-size: 0.85em;
   font-weight: 300;
-  color: rgba(255,255,255,0.45);
+  color: var(--c-text-muted);
   letter-spacing: 0.02em;
 }
 .page-desc {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.6);
+  color: var(--c-text-sub);
   max-width: 560px;
   line-height: 1.85;
 }
 
 /* ---------- Section Jump Nav ---------- */
 .section-jump {
-  background: var(--c-surface);
+  background: var(--c-bg);
   border-bottom: 1px solid var(--c-border);
   position: sticky;
   top: var(--nav-h);

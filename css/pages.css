@@ -3,12 +3,12 @@
    (loaded in addition to style.css on inner pages)
    ========================================================== */
 
-/* ---------- Page Hero (compact, light) ---------- */
+/* ---------- Page Hero (charcoal, white text) ---------- */
 .page-hero {
   position: relative;
-  background: var(--c-surface);
+  background: var(--c-charcoal-dark);
   padding: 2.2rem 0 2.6rem;
-  border-bottom: 1px solid var(--c-border);
+  border-bottom: 2px solid var(--c-accent);
   border-left: 5px solid var(--c-accent);
   overflow: hidden;
 }
@@ -18,21 +18,21 @@
   inset: 0;
   background: repeating-linear-gradient(
     -45deg, transparent, transparent 48px,
-    rgba(27,60,40,0.022) 48px, rgba(27,60,40,0.022) 49px
+    rgba(255,255,255,0.018) 48px, rgba(255,255,255,0.018) 49px
   );
   pointer-events: none;
 }
 .page-hero .container { position: relative; z-index: 1; }
 
 .page-breadcrumb {
-  font-family: var(--font-en);
+  font-family: var(--font-serif);
   font-size: 0.75rem;
-  color: var(--c-text-muted);
+  color: rgba(255,255,255,0.4);
   letter-spacing: 0.04em;
   margin-bottom: 0.75rem;
 }
-.page-breadcrumb a { color: var(--c-text-muted); transition: color 0.2s; }
-.page-breadcrumb a:hover { color: var(--c-accent); }
+.page-breadcrumb a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+.page-breadcrumb a:hover { color: var(--c-accent-light); }
 .page-breadcrumb .sep { margin: 0 0.4em; }
 
 .page-title {
@@ -40,30 +40,31 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.8rem;
+  font-family: var(--font-serif);
   font-size: clamp(1.5rem, 4vw, 2.2rem);
   font-weight: 700;
-  color: var(--c-primary);
+  color: #FFFFFF;
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
 .page-title-en {
-  font-family: var(--font-en);
+  font-family: var(--font-serif);
   font-size: 0.85em;
-  font-weight: 300;
-  color: var(--c-text-muted);
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.45);
 }
 .page-desc {
   font-size: 0.9rem;
-  color: var(--c-text-sub);
+  color: rgba(255,255,255,0.62);
   max-width: 560px;
   line-height: 1.85;
 }
 
 /* ---------- Section Jump Nav ---------- */
 .section-jump {
-  background: var(--c-bg);
-  border-bottom: 1px solid var(--c-border);
+  background: var(--c-charcoal);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   position: sticky;
   top: var(--nav-h);
   z-index: 90;
@@ -78,22 +79,31 @@
 .section-jump a {
   display: block;
   padding: 0.75rem 1.25rem;
+  font-family: var(--font-serif);
   font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--c-text-sub);
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
   white-space: nowrap;
   border-bottom: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
-.section-jump a:hover { color: var(--c-primary); border-bottom-color: var(--c-border-dark); }
-.section-jump a.active { color: var(--c-primary); border-bottom-color: var(--c-accent); }
+.section-jump a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.3); }
+.section-jump a.active { color: #fff; border-bottom-color: var(--c-accent); }
 
 /* ---------- Data Section ---------- */
 .data-section {
   padding-block: var(--sp-2xl);
 }
 .data-section + .data-section {
-  border-top: 3px solid var(--c-border);
+  border-top: 2px solid rgba(255,255,255,0.08);
+}
+/* White card container inside each data section */
+.data-section > .container {
+  background: var(--c-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-xl);
+  box-shadow: var(--sh-md);
+  color: var(--c-text);
 }
 .data-section-header {
   display: flex;
@@ -101,20 +111,24 @@
   flex-wrap: wrap;
   gap: var(--sp-sm);
   margin-bottom: var(--sp-lg);
+  padding-bottom: var(--sp-md);
+  border-bottom: 2px solid var(--c-charcoal-dark);
 }
 .data-section-header h2 {
+  font-family: var(--font-serif);
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--c-primary);
+  color: var(--c-text);
   display: flex;
   align-items: baseline;
   gap: 0.6rem;
 }
 .data-section-header .en-sub {
-  font-family: var(--font-en);
+  font-family: var(--font-serif);
   font-size: 0.78rem;
   color: var(--c-text-muted);
   font-weight: 400;
+  font-style: italic;
 }
 .section-lead {
   font-size: 0.875rem;

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | フードロス・ポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-lg);
+      margin-top: var(--sp-lg);
+    }
+    .contact-item {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-md);
+      padding: var(--sp-md);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .contact-label {
+      font-family: var(--font-en);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--c-text-muted);
+      text-transform: uppercase;
+    }
+    .contact-value {
+      font-size: 0.9rem;
+      color: var(--c-primary);
+      font-weight: 500;
+    }
+    .contact-note { font-size: 0.75rem; color: var(--c-text-muted); }
+
+    .site-concept-box {
+      background: var(--c-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-xl) calc(var(--sp-xl) * 1.2);
+      color: rgba(255,255,255,0.8);
+      margin-bottom: var(--sp-xl);
+    }
+    .site-concept-box h2 { font-size: 1.3rem; color: #fff; margin-bottom: var(--sp-md); }
+    .site-concept-box p { font-size: 0.9rem; line-height: 1.85; margin-bottom: var(--sp-md); }
+    .site-concept-tagline {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      border-left: 3px solid var(--c-accent);
+      padding-left: var(--sp-md);
+      margin-top: var(--sp-lg);
+      line-height: 1.6;
+    }
+    .site-concept-tagline-en {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.3rem;
+      padding-left: calc(var(--sp-md) + 3px);
+    }
+
+    @media (max-width: 640px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-ja">フードロス・ポータル</span>
+        <span class="brand-en">Food Loss Portal Japan</span>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="data.html"><span lang="ja">データ</span> / Data</a></li>
+          <li><a href="policy.html"><span lang="ja">政策</span> / Policy</a></li>
+          <li><a href="practice.html"><span lang="ja">実践</span> / Practice</a></li>
+          <li><a href="research.html"><span lang="ja">研究</span> / Research</a></li>
+          <li><a href="education.html"><span lang="ja">教育</span> / Education</a></li>
+          <li><a href="outreach.html"><span lang="ja">発信・業績</span></a></li>
+          <li><a href="about.html" class="active">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="メニューを開閉する">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>About</p>
+      <h1 class="page-title">
+        <span lang="ja">About</span>
+      </h1>
+      <p class="page-desc" lang="ja">
+        このサイトのコンセプト・運営者プロフィール・連絡先。
+      </p>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- サイトコンセプト -->
+    <section class="data-section">
+      <div class="container">
+        <div class="site-concept-box">
+          <h2>このサイトについて / About This Portal</h2>
+          <p lang="ja">
+            フードロス・ポータルは、日本の食品ロス問題を「データ・政策・実践・研究・教育」の5つの視点から体系的に整理・発信するプロフェッショナル向け情報ハブです。
+            研究者・政策担当者・食品事業者・教育関係者が、信頼性の高い情報に効率よくアクセスできるプラットフォームを目指します。
+          </p>
+          <p lang="ja">
+            このポータルは個人の研究・教育活動の一環として運営されており、政府機関とは独立した立場から食品ロス問題を分析・発信します。
+            掲載データは可能な限り一次資料（農林水産省・環境省・消費者庁・FAO等）を参照し、出典を明記します。
+          </p>
+          <div class="site-concept-tagline" lang="ja">食品ロス（ゼロ）は目標ではない。</div>
+          <div class="site-concept-tagline-en">Food Loss (Zero) is Not the Goal.</div>
+        </div>
+
+        <!-- プロフィール -->
+        <div class="profile-grid">
+          <div class="profile-photo" lang="ja">写真プレースホルダー</div>
+          <div>
+            <div class="profile-name" lang="ja">○○ ○○（氏名）</div>
+            <div class="profile-name-en">XXXX, XXXXX</div>
+            <div class="profile-affiliation" lang="ja">
+              ○○大学 農学部 教授<br>
+              専門：食料経済学・フードシステム論・食品ロス研究<br>
+              博士（農学）　○○大学 ○○年
+            </div>
+            <div class="profile-bio" lang="ja">
+              食品ロスの発生メカニズム・削減政策・消費者行動を主な研究テーマとする。
+              農林水産省・消費者庁の審議会・委員会委員を歴任。
+              フードバンク支援・食品寄附推進にも実務面で関与する。
+              食品ロス削減推進法の立案過程に研究面から貢献。
+              著書に『食品ロスとは何か』（○○出版、2024年）など。
+              国内外で年間20件以上の講演・シンポジウム登壇実績を持つ。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 連絡先 -->
+    <section class="data-section" id="contact" style="background: var(--c-surface);">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>連絡先 <span class="en-sub">Contact</span></h2>
+        </div>
+        <p class="section-lead" lang="ja">
+          取材・講演依頼・共同研究・教育機関からのお問い合わせはメールにてお願いします。
+          メッセージには所属・目的を明記してください。
+        </p>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">xxxx@xxxx.ac.jp</div>
+            <div class="contact-note" lang="ja">※ 研究・取材・講演依頼</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Affiliation</div>
+            <div class="contact-value" lang="ja">○○大学 農学部</div>
+            <div class="contact-note">〒XXX-XXXX ○○県○○市○○ X-X-X</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Office Hours</div>
+            <div class="contact-value" lang="ja">火・木 13:00–15:00</div>
+            <div class="contact-note" lang="ja">来訪の際は事前にご連絡ください</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Social / Web</div>
+            <div class="contact-value">ResearchGate / ORCID</div>
+            <div class="contact-note" lang="ja">準備中</div>
+          </div>
+        </div>
+
+        <div class="method-note" style="margin-top: var(--sp-xl);">
+          <strong>免責事項：</strong>
+          本サイトに掲載された情報は研究・教育目的のものです。
+          掲載データの利用・引用の際は出典を明記してください。
+          一次データは各省庁・機関の公式資料をご参照ください。
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-title">フードロス・ポータル</p>
+        <p class="footer-subtitle">Food Loss Portal Japan</p>
+        <p class="footer-tagline">食品ロス（ゼロ）は目標ではない。</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-col">
+          <h4>コンテンツ</h4>
+          <ul>
+            <li><a href="data.html">データ / Data</a></li>
+            <li><a href="policy.html">政策 / Policy</a></li>
+            <li><a href="practice.html">実践 / Practice</a></li>
+            <li><a href="research.html">研究 / Research</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>情報</h4>
+          <ul>
+            <li><a href="education.html">教育 / Education</a></li>
+            <li><a href="outreach.html">発信・業績</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 フードロス・ポータル Japan. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

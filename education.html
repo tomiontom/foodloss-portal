@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教育 / Education | フードロス・ポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .material-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--sp-md);
+      margin-bottom: var(--sp-xl);
+    }
+    .material-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-md);
+      padding: var(--sp-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-sm);
+      transition: box-shadow 0.2s;
+    }
+    .material-card:hover { box-shadow: var(--sh-md); }
+    .material-type {
+      font-family: var(--font-en);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--c-text-muted);
+      text-transform: uppercase;
+    }
+    .material-title { font-size: 0.9rem; font-weight: 600; color: var(--c-primary); line-height: 1.4; }
+    .material-desc { font-size: 0.78rem; color: var(--c-text-sub); line-height: 1.6; flex: 1; }
+    .material-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: var(--sp-sm);
+      border-top: 1px solid var(--c-border);
+    }
+    .material-lang { font-size: 0.68rem; color: var(--c-text-muted); }
+    .material-dl {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--c-primary-light);
+      border: 1px solid var(--c-primary-light);
+      border-radius: var(--radius-sm);
+      padding: 0.15rem 0.5rem;
+      opacity: 0.5;
+    }
+
+    .course-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg);
+      margin-bottom: var(--sp-md);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--sp-md);
+      align-items: start;
+    }
+    .course-tag {
+      font-family: var(--font-en);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--c-accent);
+      margin-bottom: 0.4rem;
+    }
+    .course-title { font-size: 1.05rem; font-weight: 700; color: var(--c-primary); margin-bottom: 0.35rem; }
+    .course-meta { font-size: 0.8rem; color: var(--c-text-sub); line-height: 1.65; }
+    .course-badge {
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-md);
+      padding: 0.6rem 1rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .course-badge-val { font-family: var(--font-en); font-size: 1.4rem; font-weight: 700; color: var(--c-primary); display: block; }
+    .course-badge-label { font-size: 0.68rem; color: var(--c-text-muted); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-ja">フードロス・ポータル</span>
+        <span class="brand-en">Food Loss Portal Japan</span>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="data.html"><span lang="ja">データ</span> / Data</a></li>
+          <li><a href="policy.html"><span lang="ja">政策</span> / Policy</a></li>
+          <li><a href="practice.html"><span lang="ja">実践</span> / Practice</a></li>
+          <li><a href="research.html"><span lang="ja">研究</span> / Research</a></li>
+          <li><a href="education.html" class="active"><span lang="ja">教育</span> / Education</a></li>
+          <li><a href="outreach.html"><span lang="ja">発信・業績</span></a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="メニューを開閉する">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>教育</p>
+      <h1 class="page-title">
+        <span lang="ja">教育</span>
+        <span class="page-title-en">Education</span>
+      </h1>
+      <p class="page-desc" lang="ja">
+        大学・大学院での食品ロス関連講義の資料、授業デザイン、
+        社会人向け研修コンテンツのアーカイブ。
+      </p>
+    </div>
+  </section>
+
+  <nav class="section-jump" aria-label="セクションジャンプ">
+    <div class="container">
+      <ul>
+        <li><a href="#courses">担当授業</a></li>
+        <li><a href="#materials">講義資料</a></li>
+        <li><a href="#resources">外部リソース</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 担当授業 -->
+    <section class="data-section" id="courses">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>担当授業・授業紹介 <span class="en-sub">Courses</span></h2>
+        </div>
+
+        <div class="course-card">
+          <div>
+            <div class="course-tag">UNDERGRADUATE</div>
+            <div class="course-title" lang="ja">食料システム論</div>
+            <div class="course-meta" lang="ja">
+              担当大学：○○大学 農学部<br>
+              概要：食料の生産から消費・廃棄に至るフードシステム全体を俯瞰し、食品ロス問題の構造的理解を深める。サプライチェーン、需要予測、政策分析、消費者行動論を含む。
+            </div>
+          </div>
+          <div class="course-badge">
+            <span class="course-badge-val">2単位</span>
+            <span class="course-badge-label">半期15回</span>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div>
+            <div class="course-tag">GRADUATE</div>
+            <div class="course-title" lang="ja">食品ロス削減特論</div>
+            <div class="course-meta" lang="ja">
+              担当大学：○○大学大学院<br>
+              概要：国内外の食品ロス削減政策・技術・行動介入の最新動向を論文輪読とケーススタディを通じて学ぶ。Beer Game演習を含む。
+            </div>
+          </div>
+          <div class="course-badge">
+            <span class="course-badge-val">2単位</span>
+            <span class="course-badge-label">集中講義</span>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div>
+            <div class="course-tag">SOCIAL / PROFESSIONAL</div>
+            <div class="course-title" lang="ja">食品事業者向け研修：食品ロス削減の実務</div>
+            <div class="course-meta" lang="ja">
+              対象：食品製造・小売・外食業界の担当者<br>
+              内容：法制度の概要・自社の発生量把握方法・削減目標設定・サプライヤーとの連携。
+            </div>
+          </div>
+          <div class="course-badge">
+            <span class="course-badge-val">半日</span>
+            <span class="course-badge-label">〜1日</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 講義資料 -->
+    <section class="data-section" id="materials" style="background: var(--c-surface);">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>講義資料 <span class="en-sub">Teaching Materials</span></h2>
+        </div>
+        <p class="section-lead" lang="ja">公開可能な講義スライド・ハンドアウトを随時掲載します。（現在準備中）</p>
+
+        <div class="material-grid">
+          <div class="material-card">
+            <div class="material-type">Slide Deck</div>
+            <div class="material-title" lang="ja">第1回：食品ロスとは何か——定義・計測・国際比較</div>
+            <div class="material-desc" lang="ja">食料ロスと食品廃棄の定義の違い、FAO分類、日本独自の計測手法の説明。</div>
+            <div class="material-footer">
+              <span class="material-lang">JP / EN</span>
+              <span class="material-dl">準備中</span>
+            </div>
+          </div>
+          <div class="material-card">
+            <div class="material-type">Slide Deck</div>
+            <div class="material-title" lang="ja">第3回：食品ロス削減推進法と政策体系</div>
+            <div class="material-desc" lang="ja">法律の成立経緯・条文解説・基本方針・都道府県計画の状況。</div>
+            <div class="material-footer">
+              <span class="material-lang">JP</span>
+              <span class="material-dl">準備中</span>
+            </div>
+          </div>
+          <div class="material-card">
+            <div class="material-type">Slide Deck</div>
+            <div class="material-title" lang="ja">第7回：サプライチェーンと食品ロス——ブルウィップ効果</div>
+            <div class="material-desc" lang="ja">需要増幅のメカニズム・事例・Beer Gameへの接続。</div>
+            <div class="material-footer">
+              <span class="material-lang">JP / EN</span>
+              <span class="material-dl">準備中</span>
+            </div>
+          </div>
+          <div class="material-card">
+            <div class="material-type">Exercise</div>
+            <div class="material-title" lang="ja">Beer Game 演習テキスト</div>
+            <div class="material-desc" lang="ja">食品サプライチェーン版 Beer Game のルール・進行マニュアル・ふりかえりワークシート。</div>
+            <div class="material-footer">
+              <span class="material-lang">JP</span>
+              <span class="material-dl">準備中</span>
+            </div>
+          </div>
+          <div class="material-card">
+            <div class="material-type">Case Study</div>
+            <div class="material-title" lang="ja">ケーススタディ：コンビニ各社の食品ロス削減取り組み</div>
+            <div class="material-desc" lang="ja">国内コンビニエンスストア大手3社の施策比較・KPI分析。</div>
+            <div class="material-footer">
+              <span class="material-lang">JP</span>
+              <span class="material-dl">準備中</span>
+            </div>
+          </div>
+          <div class="material-card">
+            <div class="material-type">Dataset</div>
+            <div class="material-title" lang="ja">演習用データセット：農水省・環境省 推計値（整形済）</div>
+            <div class="material-desc" lang="ja">授業で使用できる形式に整形した食品ロス量推計データ（CSV）。</div>
+            <div class="material-footer">
+              <span class="material-lang">JP</span>
+              <span class="material-dl">準備中</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 外部リソース -->
+    <section class="data-section" id="resources">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>推薦リソース <span class="en-sub">Recommended Resources</span></h2>
+        </div>
+        <div class="coming-soon-grid">
+          <div class="cs-card">
+            <div class="cs-card-tag">Government</div>
+            <h3 lang="ja">消費者庁：食品ロス削減ポータルサイト</h3>
+            <p lang="ja">政府公式の食品ロス関連情報・統計・取り組み事例集。</p>
+          </div>
+          <div class="cs-card">
+            <div class="cs-card-tag">International</div>
+            <h3>FAO: Food Loss and Waste Platform</h3>
+            <p lang="ja">国際連合食糧農業機関による食料損失・廃棄に関するグローバルデータベース。</p>
+          </div>
+          <div class="cs-card">
+            <div class="cs-card-tag">Academic</div>
+            <h3>WRAP: Food Waste Reports</h3>
+            <p lang="ja">英国の食品廃棄物削減専門機関による詳細な研究レポート。授業での参照に推薦。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-title">フードロス・ポータル</p>
+        <p class="footer-subtitle">Food Loss Portal Japan</p>
+        <p class="footer-tagline">食品ロス（ゼロ）は目標ではない。</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-col">
+          <h4>コンテンツ</h4>
+          <ul>
+            <li><a href="data.html">データ / Data</a></li>
+            <li><a href="policy.html">政策 / Policy</a></li>
+            <li><a href="practice.html">実践 / Practice</a></li>
+            <li><a href="research.html">研究 / Research</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>情報</h4>
+          <ul>
+            <li><a href="education.html">教育 / Education</a></li>
+            <li><a href="outreach.html">発信・業績</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 フードロス・ポータル Japan. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

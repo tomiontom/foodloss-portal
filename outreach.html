@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>発信・業績 / Outreach & Works | フードロス・ポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--sp-lg);
+      margin-bottom: var(--sp-xl);
+    }
+    .book-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-sm);
+    }
+    .book-cover {
+      aspect-ratio: 2/3;
+      background: linear-gradient(145deg, var(--c-primary-mid), var(--c-primary));
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.72rem;
+      font-family: var(--font-en);
+      box-shadow: var(--sh-md);
+    }
+    .book-title { font-size: 0.9rem; font-weight: 600; color: var(--c-primary); line-height: 1.4; }
+    .book-meta { font-size: 0.75rem; color: var(--c-text-muted); line-height: 1.55; }
+
+    .lecture-list { display: flex; flex-direction: column; gap: 0; }
+    .lecture-item {
+      display: grid;
+      grid-template-columns: 5.5rem 5rem 1fr;
+      gap: var(--sp-md);
+      padding: var(--sp-md) 0;
+      border-bottom: 1px solid var(--c-border);
+      align-items: start;
+    }
+    .lecture-item:first-child { border-top: 1px solid var(--c-border); }
+    .lecture-date { font-family: var(--font-en); font-size: 0.78rem; color: var(--c-text-muted); padding-top: 0.1rem; }
+    .lecture-type {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.45rem;
+      border-radius: 2px;
+      text-align: center;
+      align-self: start;
+      white-space: nowrap;
+    }
+    .lt-keynote  { background: #E8F4FF; color: #1B4A8A; }
+    .lt-invited  { background: #E8F9EE; color: #1B5A30; }
+    .lt-panel    { background: #FFF3E8; color: #7A3A1A; }
+    .lt-media    { background: #F5E8FF; color: #4A1A7A; }
+    .lecture-title { font-size: 0.875rem; font-weight: 500; color: var(--c-text); margin-bottom: 0.2rem; }
+    .lecture-org { font-size: 0.75rem; color: var(--c-text-muted); }
+
+    @media (max-width: 580px) {
+      .lecture-item {
+        grid-template-columns: 5rem 1fr;
+        grid-template-rows: auto auto;
+      }
+      .lecture-type { grid-row: 2; }
+      .lecture-title, .lecture-org { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-ja">フードロス・ポータル</span>
+        <span class="brand-en">Food Loss Portal Japan</span>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="data.html"><span lang="ja">データ</span> / Data</a></li>
+          <li><a href="policy.html"><span lang="ja">政策</span> / Policy</a></li>
+          <li><a href="practice.html"><span lang="ja">実践</span> / Practice</a></li>
+          <li><a href="research.html"><span lang="ja">研究</span> / Research</a></li>
+          <li><a href="education.html"><span lang="ja">教育</span> / Education</a></li>
+          <li><a href="outreach.html" class="active"><span lang="ja">発信・業績</span></a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="メニューを開閉する">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>発信・業績</p>
+      <h1 class="page-title">
+        <span lang="ja">発信・業績</span>
+        <span class="page-title-en">Outreach &amp; Works</span>
+      </h1>
+      <p class="page-desc" lang="ja">
+        著書・論文・学会発表・メディア掲載・講演実績の一覧。
+        社会への知識還元と政策形成への貢献。
+      </p>
+    </div>
+  </section>
+
+  <nav class="section-jump" aria-label="セクションジャンプ">
+    <div class="container">
+      <ul>
+        <li><a href="#books">著書</a></li>
+        <li><a href="#papers">論文</a></li>
+        <li><a href="#lectures">講演</a></li>
+        <li><a href="#media">メディア</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 著書 -->
+    <section class="data-section" id="books">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>著書 <span class="en-sub">Books</span></h2>
+        </div>
+        <div class="book-grid">
+          <div class="book-card">
+            <div class="book-cover">Cover placeholder</div>
+            <div class="book-title" lang="ja">食品ロスとは何か——数字で読む日本の食の課題</div>
+            <div class="book-meta">○○出版 / 2024年 / ISBN 978-X-XXXX-XXXX-X</div>
+          </div>
+          <div class="book-card">
+            <div class="book-cover">Cover placeholder</div>
+            <div class="book-title" lang="ja">フードバンクと食品寄附——社会インフラとしての可能性</div>
+            <div class="book-meta">△△書院 / 2022年 / ISBN 978-X-XXXX-XXXX-X</div>
+          </div>
+          <div class="book-card">
+            <div class="book-cover">Cover placeholder</div>
+            <div class="book-title" lang="ja">農業・食料問題を学ぶ（分担執筆）</div>
+            <div class="book-meta">□□大学出版会 / 2021年 / 第X章担当</div>
+          </div>
+          <div class="book-card">
+            <div class="book-cover">Cover placeholder</div>
+            <div class="book-title" lang="ja">食品ロス削減の経済学（準備中）</div>
+            <div class="book-meta">○○出版 / 2025年予定</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 論文 -->
+    <section class="data-section" id="papers" style="background: var(--c-surface);">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>論文・研究報告 <span class="en-sub">Publications</span></h2>
+        </div>
+        <div class="works-list">
+          <div class="work-item">
+            <div class="work-year">2024</div>
+            <div>
+              <div class="work-title" lang="ja">サプライチェーンにおけるブルウィップ効果と食品ロスの関係——小売業データを用いた実証分析</div>
+              <div class="work-meta">
+                <span class="work-tag tag-paper">論文</span>
+                食料・農業・農村政策研究, Vol.X(X), pp.XX–XX. DOI: 10.XXXXX
+              </div>
+            </div>
+          </div>
+          <div class="work-item">
+            <div class="work-year">2023</div>
+            <div>
+              <div class="work-title" lang="ja">消費者の「てまえどり」行動意図に影響する要因——計画的行動理論の適用</div>
+              <div class="work-meta">
+                <span class="work-tag tag-paper">論文</span>
+                農業経済研究, Vol.X(X), pp.XX–XX.
+              </div>
+            </div>
+          </div>
+          <div class="work-item">
+            <div class="work-year">2023</div>
+            <div>
+              <div class="work-title" lang="ja">フードバンクの取扱量増加要因——COVID-19前後のパネルデータ分析</div>
+              <div class="work-meta">
+                <span class="work-tag tag-paper">論文</span>
+                農林業問題研究, Vol.X(X), pp.XX–XX.
+              </div>
+            </div>
+          </div>
+          <div class="work-item">
+            <div class="work-year">2022</div>
+            <div>
+              <div class="work-title">Beer Game を用いた食品サプライチェーン教育——学習効果の実証</div>
+              <div class="work-meta">
+                <span class="work-tag tag-paper">論文</span>
+                農業情報研究, Vol.X(X), pp.XX–XX.
+              </div>
+            </div>
+          </div>
+          <div class="work-item">
+            <div class="work-year">2024</div>
+            <div>
+              <div class="work-title" lang="ja">令和4年度 食品ロス削減施策の評価に関する調査報告書</div>
+              <div class="work-meta">
+                <span class="work-tag tag-media" style="background:#FFF3E0; color:#7A4A00;">報告書</span>
+                ○○省委託調査
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 講演 -->
+    <section class="data-section" id="lectures">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>講演・登壇 <span class="en-sub">Lectures &amp; Speaking</span></h2>
+        </div>
+        <div class="lecture-list">
+          <div class="lecture-item">
+            <div class="lecture-date">2025.05</div>
+            <span class="lecture-type lt-keynote">基調講演</span>
+            <div>
+              <div class="lecture-title" lang="ja">食品ロス削減の現状と課題——データが示す実態</div>
+              <div class="lecture-org" lang="ja">○○食品フォーラム 2025</div>
+            </div>
+          </div>
+          <div class="lecture-item">
+            <div class="lecture-date">2025.03</div>
+            <span class="lecture-type lt-invited">招待講演</span>
+            <div>
+              <div class="lecture-title" lang="ja">フードバンクの社会的機能と政策的位置づけ</div>
+              <div class="lecture-org" lang="ja">△△学会 年次大会</div>
+            </div>
+          </div>
+          <div class="lecture-item">
+            <div class="lecture-date">2025.02</div>
+            <span class="lecture-type lt-panel">パネル登壇</span>
+            <div>
+              <div class="lecture-title" lang="ja">食品ロス削減推進法5年の成果と展望</div>
+              <div class="lecture-org">□□政策フォーラム 政策セッション</div>
+            </div>
+          </div>
+          <div class="lecture-item">
+            <div class="lecture-date">2024.11</div>
+            <span class="lecture-type lt-invited">招待講演</span>
+            <div>
+              <div class="lecture-title">Food Loss Reduction Policy in Japan: Achievements and Challenges</div>
+              <div class="lecture-org">International Symposium on Sustainable Food Systems, ○○ (Overseas)</div>
+            </div>
+          </div>
+          <div class="lecture-item">
+            <div class="lecture-date">2024.10</div>
+            <span class="lecture-type lt-keynote">基調講演</span>
+            <div>
+              <div class="lecture-title" lang="ja">食品ロス削減月間 記念シンポジウム</div>
+              <div class="lecture-org" lang="ja">消費者庁主催 令和6年度食品ロス削減全国大会</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- メディア -->
+    <section class="data-section" id="media" style="background: var(--c-surface);">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>メディア掲載 <span class="en-sub">Media</span></h2>
+        </div>
+        <div class="works-list">
+          <div class="work-item">
+            <div class="work-year">2025.06</div>
+            <div>
+              <div class="work-title" lang="ja">「食品ロス472万トンの衝撃——数字の裏にある構造問題」</div>
+              <div class="work-meta">
+                <span class="work-tag tag-media">メディア</span>
+                ○○新聞 朝刊（解説コメント）
+              </div>
+            </div>
+          </div>
+          <div class="work-item">
+            <div class="work-year">2025.04</div>
+            <div>
+              <div class="work-title" lang="ja">「てまえどりは普及するか——消費者行動の研究から」</div>
+              <div class="work-meta">
+                <span class="work-tag tag-media">メディア</span>
+                △△経済雑誌 取材・寄稿
+              </div>
+            </div>
+          </div>
+          <div class="work-item">
+            <div class="work-year">2024.12</div>
+            <div>
+              <div class="work-title">NHK ○○ニュース 食品ロス特集（コメント出演）</div>
+              <div class="work-meta">
+                <span class="work-tag tag-media">メディア</span>
+                テレビ
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-title">フードロス・ポータル</p>
+        <p class="footer-subtitle">Food Loss Portal Japan</p>
+        <p class="footer-tagline">食品ロス（ゼロ）は目標ではない。</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-col">
+          <h4>コンテンツ</h4>
+          <ul>
+            <li><a href="data.html">データ / Data</a></li>
+            <li><a href="policy.html">政策 / Policy</a></li>
+            <li><a href="practice.html">実践 / Practice</a></li>
+            <li><a href="research.html">研究 / Research</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>情報</h4>
+          <ul>
+            <li><a href="education.html">教育 / Education</a></li>
+            <li><a href="outreach.html">発信・業績</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 フードロス・ポータル Japan. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

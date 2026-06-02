@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>実践 / Practice | フードロス・ポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .practice-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: var(--sp-xl);
+      align-items: start;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg) calc(var(--sp-lg) * 1.2);
+      margin-bottom: var(--sp-lg);
+    }
+    .practice-card:nth-child(even) { background: var(--c-bg); }
+    .practice-img {
+      aspect-ratio: 1;
+      background: var(--c-border);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--c-text-muted);
+      font-size: 2.5rem;
+    }
+    .practice-img span { font-size: 0.72rem; font-family: var(--font-en); }
+    .practice-body {}
+    .practice-tag {
+      display: inline-block;
+      font-family: var(--font-en);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+      background: var(--c-primary);
+      color: #fff;
+      border-radius: 2px;
+      margin-bottom: 0.6rem;
+    }
+    .practice-title-ja { font-size: 1.35rem; font-weight: 700; color: var(--c-primary); margin-bottom: 0.2rem; }
+    .practice-title-en { font-family: var(--font-en); font-size: 0.85rem; color: var(--c-text-muted); margin-bottom: var(--sp-md); }
+    .practice-desc { font-size: 0.875rem; color: var(--c-text); line-height: 1.85; margin-bottom: var(--sp-md); }
+    .practice-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-sm);
+    }
+    .pstat {
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.9rem;
+      text-align: center;
+    }
+    .pstat-val { font-family: var(--font-en); font-size: 1.1rem; font-weight: 700; color: var(--c-primary); }
+    .pstat-label { font-size: 0.7rem; color: var(--c-text-muted); }
+    @media (max-width: 640px) {
+      .practice-card { grid-template-columns: 1fr; }
+      .practice-img { aspect-ratio: 16/7; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-ja">フードロス・ポータル</span>
+        <span class="brand-en">Food Loss Portal Japan</span>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="data.html"><span lang="ja">データ</span> / Data</a></li>
+          <li><a href="policy.html"><span lang="ja">政策</span> / Policy</a></li>
+          <li><a href="practice.html" class="active"><span lang="ja">実践</span> / Practice</a></li>
+          <li><a href="research.html"><span lang="ja">研究</span> / Research</a></li>
+          <li><a href="education.html"><span lang="ja">教育</span> / Education</a></li>
+          <li><a href="outreach.html"><span lang="ja">発信・業績</span></a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="メニューを開閉する">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>実践</p>
+      <h1 class="page-title">
+        <span lang="ja">実践</span>
+        <span class="page-title-en">Practice</span>
+      </h1>
+      <p class="page-desc" lang="ja">
+        消費者・事業者・地域社会が取り組む食品ロス削減の実践事例。
+        てまえどり・ドギーバッグ・フードドライブ・フードバンクの4テーマを深掘りします。
+      </p>
+    </div>
+  </section>
+
+  <nav class="section-jump" aria-label="セクションジャンプ">
+    <div class="container">
+      <ul>
+        <li><a href="#temae">てまえどり</a></li>
+        <li><a href="#doggy">ドギーバッグ</a></li>
+        <li><a href="#drive">フードドライブ</a></li>
+        <li><a href="#bank">フードバンク・食品寄附</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" style="padding-block: var(--sp-2xl);">
+
+      <!-- てまえどり -->
+      <section id="temae">
+        <div class="practice-card">
+          <div class="practice-img">🛒<span>Image placeholder</span></div>
+          <div class="practice-body">
+            <span class="practice-tag">消費者行動 / Consumer Behavior</span>
+            <h2 class="practice-title-ja">てまえどり</h2>
+            <p class="practice-title-en">Take-from-the-Front Campaign</p>
+            <p class="practice-desc" lang="ja">
+              販売期限が近い手前の商品から購入する消費者行動。消費者庁・農林水産省・環境省が連携して推進するキャンペーンで、小売業者の協力のもと棚頭（てまえ）に近い商品を選ぶよう促すPOPや声かけを実施。コンビニエンスストアやスーパーでの廃棄削減に直結するが、消費者の「新鮮なものを選びたい」心理との両立が課題。
+            </p>
+            <div class="practice-stats">
+              <div class="pstat">
+                <div class="pstat-val">約7割</div>
+                <div class="pstat-label">認知率（2023年消費者調査）</div>
+              </div>
+              <div class="pstat">
+                <div class="pstat-val">コンビニ大手</div>
+                <div class="pstat-label">3社が取り組み推進</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ドギーバッグ -->
+      <section id="doggy">
+        <div class="practice-card">
+          <div class="practice-img">🍱<span>Image placeholder</span></div>
+          <div class="practice-body">
+            <span class="practice-tag">外食 / Food Service</span>
+            <h2 class="practice-title-ja">ドギーバッグ</h2>
+            <p class="practice-title-en">Doggy Bag / Restaurant Takeout</p>
+            <p class="practice-desc" lang="ja">
+              外食時に食べ残しを持ち帰るための容器（持ち帰り袋）。欧米では一般的だが、日本では衛生面の懸念・持ち帰り後の保管リスク・店側の責任問題などから普及が遅れている。農林水産省は「食べきりへの配慮」「打ち水ならぬ打ち食い」と並び推進施策の一つとして位置付けており、一部の飲食店・自治体でモデル事業が進行中。
+            </p>
+            <div class="practice-stats">
+              <div class="pstat">
+                <div class="pstat-val">~36%</div>
+                <div class="pstat-label">持ち帰りに「抵抗なし」（意識調査）</div>
+              </div>
+              <div class="pstat">
+                <div class="pstat-val">食べ残し</div>
+                <div class="pstat-label">外食産業ロスの主要因</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- フードドライブ -->
+      <section id="drive">
+        <div class="practice-card">
+          <div class="practice-img">📦<span>Image placeholder</span></div>
+          <div class="practice-body">
+            <span class="practice-tag">地域 / Community</span>
+            <h2 class="practice-title-ja">フードドライブ</h2>
+            <p class="practice-title-en">Food Drive</p>
+            <p class="practice-desc" lang="ja">
+              家庭や事業者で余った未使用食品を持ち寄り、食品を必要とする人々や団体に届ける取り組み。自治体・企業・学校・NPOが実施主体となり、年末年始や食品ロス削減月間（10月）に集中して行われることが多い。集まった食品はフードバンクを通じてこども食堂・生活困窮者支援等に配分される。
+            </p>
+            <div class="practice-stats">
+              <div class="pstat">
+                <div class="pstat-val">全国</div>
+                <div class="pstat-label">自治体の約4割が実施</div>
+              </div>
+              <div class="pstat">
+                <div class="pstat-val">10月</div>
+                <div class="pstat-label">食品ロス削減月間に集中</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- フードバンク -->
+      <section id="bank">
+        <div class="practice-card">
+          <div class="practice-img">🏪<span>Image placeholder</span></div>
+          <div class="practice-body">
+            <span class="practice-tag">セーフティネット / Safety Net</span>
+            <h2 class="practice-title-ja">フードバンク・食品寄附</h2>
+            <p class="practice-title-en">Food Bank &amp; Food Donation</p>
+            <p class="practice-desc" lang="ja">
+              品質に問題はないが規格外・余剰となった食品を食品メーカー・農家・小売業者などから引き取り、生活困窮者・こども食堂・福祉施設などに無償提供する活動。日本では2000年代から徐々に広がり、コロナ禍を経て急増。農林水産省は「食品寄附ガイドライン」を策定し、企業による食品寄附を促進している。
+            </p>
+            <div class="practice-stats">
+              <div class="pstat">
+                <div class="pstat-val">244+</div>
+                <div class="pstat-label">フードバンク団体数（2023年）</div>
+              </div>
+              <div class="pstat">
+                <div class="pstat-val">~27,000t</div>
+                <div class="pstat-label">年間取扱量（2023年推計）</div>
+              </div>
+              <div class="pstat">
+                <div class="pstat-val">2000年</div>
+                <div class="pstat-label">日本初のフードバンク設立</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-title">フードロス・ポータル</p>
+        <p class="footer-subtitle">Food Loss Portal Japan</p>
+        <p class="footer-tagline">食品ロス（ゼロ）は目標ではない。</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-col">
+          <h4>コンテンツ</h4>
+          <ul>
+            <li><a href="data.html">データ / Data</a></li>
+            <li><a href="policy.html">政策 / Policy</a></li>
+            <li><a href="practice.html">実践 / Practice</a></li>
+            <li><a href="research.html">研究 / Research</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>情報</h4>
+          <ul>
+            <li><a href="education.html">教育 / Education</a></li>
+            <li><a href="outreach.html">発信・業績</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 フードロス・ポータル Japan. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

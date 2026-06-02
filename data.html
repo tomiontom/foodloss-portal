@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>データ / Data | フードロス・ポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    /* Japan featured card for Food Bank */
+    .country-japan-fb {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--sp-lg);
+      background: var(--c-primary-mid);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg) calc(var(--sp-lg) * 1.2);
+      margin-bottom: var(--sp-lg);
+      color: rgba(255,255,255,0.85);
+    }
+    /* Data table below chart */
+    .data-table-wrap { overflow-x: auto; margin-top: var(--sp-lg); }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      font-family: var(--font-en);
+    }
+    .data-table th {
+      background: var(--c-bg);
+      padding: 0.5rem 0.75rem;
+      text-align: right;
+      font-weight: 600;
+      color: var(--c-text-sub);
+      border-bottom: 2px solid var(--c-border);
+      white-space: nowrap;
+    }
+    .data-table th:first-child { text-align: left; }
+    .data-table td {
+      padding: 0.45rem 0.75rem;
+      text-align: right;
+      border-bottom: 1px solid var(--c-border);
+      color: var(--c-text);
+    }
+    .data-table td:first-child { text-align: left; color: var(--c-text-sub); font-weight: 600; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table .highlight-row td { background: #f0f8f4; font-weight: 700; color: var(--c-primary); }
+    .data-table .target-row td { background: #fff4f0; color: var(--c-accent); font-style: italic; }
+
+    /* Bar reference for Stage3 */
+    .chart-bar-ref {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      margin-bottom: var(--sp-sm);
+      padding: 0.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+    }
+    .chart-bar-ref.japan-ref { background: #e8f4ee; }
+    .chart-bar-ref .ref-label { font-weight: 600; color: var(--c-primary); min-width: 120px; }
+    .chart-bar-ref .ref-val { font-family: var(--font-en); font-weight: 700; color: var(--c-primary); }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-ja">フードロス・ポータル</span>
+        <span class="brand-en">Food Loss Portal Japan</span>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="data.html" class="active"><span lang="ja">データ</span> / Data</a></li>
+          <li><a href="policy.html"><span lang="ja">政策</span> / Policy</a></li>
+          <li><a href="practice.html"><span lang="ja">実践</span> / Practice</a></li>
+          <li><a href="research.html"><span lang="ja">研究</span> / Research</a></li>
+          <li><a href="education.html"><span lang="ja">教育</span> / Education</a></li>
+          <li><a href="outreach.html"><span lang="ja">発信・業績</span></a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="メニューを開閉する">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== PAGE HERO ========== -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>データ</p>
+      <h1 class="page-title">
+        <span lang="ja">データ</span>
+        <span class="page-title-en">Data</span>
+      </h1>
+      <p class="page-desc" lang="ja">
+        日本の食品ロス量・推移・国際比較、フードバンク取扱量（QFD）を
+        各国テキスト情報・時系列グラフ・同年比較グラフの3ステージで提供します。
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== SECTION JUMP NAV ========== -->
+  <nav class="section-jump" aria-label="セクションジャンプ">
+    <div class="container">
+      <ul>
+        <li><a href="#food-loss" class="active">食品ロス / Food Loss</a></li>
+        <li><a href="#food-bank">フードバンク取扱量 / Food Bank QFD</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============================================================
+         SECTION 1: 食品ロス / Food Loss
+         ============================================================ -->
+    <section id="food-loss" class="data-section">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>食品ロス <span class="en-sub">Food Loss &amp; Food Waste</span></h2>
+        </div>
+        <p class="section-lead" lang="ja">
+          食品ロスとは、本来食べられるのに捨てられる食品のこと。
+          日本では農林水産省・環境省が年次推計を公表し、2022年度は<strong>472万トン</strong>（事業系236万トン＋家庭系236万トン）。
+          2030年度までに245万トン（2000年度比50%削減）が目標。
+        </p>
+
+        <!-- Stage Tabs -->
+        <div class="stage-nav" data-group="fl" role="tablist" aria-label="食品ロス データステージ">
+          <button class="stage-tab active" role="tab" aria-selected="true"
+                  data-target="fl-s1" data-group="fl">
+            <span class="stage-num">STAGE 1</span>
+            <span class="stage-label" lang="ja">各国テキスト情報</span>
+          </button>
+          <button class="stage-tab" role="tab" aria-selected="false"
+                  data-target="fl-s2" data-group="fl">
+            <span class="stage-num">STAGE 2</span>
+            <span class="stage-label" lang="ja">日本の推移グラフ</span>
+          </button>
+          <button class="stage-tab" role="tab" aria-selected="false"
+                  data-target="fl-s3" data-group="fl">
+            <span class="stage-num">STAGE 3</span>
+            <span class="stage-label" lang="ja">同年国際比較グラフ</span>
+          </button>
+        </div>
+
+        <!-- ---- STAGE 1: Country Text ---- -->
+        <div class="stage-panel active" id="fl-s1" data-group="fl">
+
+          <!-- Japan Featured Card -->
+          <div class="country-japan">
+            <div class="cj-header">
+              <span class="cj-flag">🇯🇵</span>
+              <div class="cj-title">
+                <h3 lang="ja">日本 / Japan</h3>
+                <span>Asia-Pacific</span>
+              </div>
+              <span class="cj-badge">FEATURED</span>
+            </div>
+
+            <div class="cj-stat">
+              <div class="cj-stat-value">472<span class="cj-stat-unit" lang="ja">万トン</span></div>
+              <div class="cj-stat-label" lang="ja">食品ロス総量（2022年度）</div>
+            </div>
+            <div class="cj-stat">
+              <div class="cj-stat-value">38<span class="cj-stat-unit">kg</span></div>
+              <div class="cj-stat-label" lang="ja">一人当たり年間廃棄量</div>
+            </div>
+            <div class="cj-stat">
+              <div class="cj-stat-value">245<span class="cj-stat-unit" lang="ja">万トン</span></div>
+              <div class="cj-stat-label" lang="ja">2030年目標（2000年度比▲50%）</div>
+            </div>
+
+            <div class="cj-info">
+              <dl>
+                <dt lang="ja">根拠法令</dt>
+                <dd lang="ja">食品ロス削減推進法（2019年10月施行）</dd>
+                <dt lang="ja">主管省庁</dt>
+                <dd lang="ja">消費者庁（総合調整）・農林水産省・環境省</dd>
+                <dt lang="ja">推計機関</dt>
+                <dd lang="ja">農林水産省・環境省（食品廃棄物等の発生量及び食品ロスの発生量推計）</dd>
+                <dt lang="ja">内訳（2022年度）</dt>
+                <dd lang="ja">事業系 236万トン（製造53・卸売10・小売66・外食107）＋家庭系 236万トン</dd>
+                <dt lang="ja">削減推移</dt>
+                <dd lang="ja">2012年度 642万トン→ 2022年度 472万トン（▲170万トン、約26%削減）</dd>
+                <dt lang="ja">国際的特徴</dt>
+                <dd lang="ja">一人当たり廃棄量は先進国の中では比較的少ないが、絶対量は依然として大きい</dd>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Asia-Pacific -->
+          <div class="region-label">アジア・太平洋 / Asia-Pacific</div>
+          <div class="country-grid">
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇨🇳</span>
+                <div class="cc-names"><div class="cc-name-ja">中国</div><div class="cc-name-en">China</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~95</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">UNEP 推計（2021）</div>
+              <div class="cc-note" lang="ja">全食料供給鎖のロスを含む概算。農業・収穫後ロスが大きい。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇰🇷</span>
+                <div class="cc-names"><div class="cc-name-ja">韓国</div><div class="cc-name-en">South Korea</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~54</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">KEI（2020）</div>
+              <div class="cc-note" lang="ja">廃棄物管理法に食品ロス規定。容量制課金ゴミ袋制度が奏功。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇮🇳</span>
+                <div class="cc-names"><div class="cc-name-ja">インド</div><div class="cc-name-en">India</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~50</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">UNEP（2021）概算</div>
+              <div class="cc-note" lang="ja">サプライチェーンの収穫後ロスが課題。冷蔵チェーン整備が急務。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇮🇩</span>
+                <div class="cc-names"><div class="cc-name-ja">インドネシア</div><div class="cc-name-en">Indonesia</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~115</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">UNEP（2021）</div>
+              <div class="cc-note" lang="ja">東南アジア最大規模の食品廃棄量。政策整備が始まりつつある。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇹🇭</span>
+                <div class="cc-names"><div class="cc-name-ja">タイ</div><div class="cc-name-en">Thailand</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~77</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">UNEP 概算</div>
+              <div class="cc-note" lang="ja">外食産業の廃棄が多い。BCG（生物・循環・グリーン）経済政策の一部。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇻🇳</span>
+                <div class="cc-names"><div class="cc-name-ja">ベトナム</div><div class="cc-name-en">Vietnam</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value no-data">—</span>
+              </div>
+              <div class="cc-source">データ準備中</div>
+              <div class="cc-note" lang="ja">農業輸出国として収穫後ロス対策が重要課題。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇸🇬</span>
+                <div class="cc-names"><div class="cc-name-ja">シンガポール</div><div class="cc-name-en">Singapore</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~55</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">NEA（2022）</div>
+              <div class="cc-note" lang="ja">ゼロ廃棄マスタープラン推進中。食品廃棄物は廃棄物全体の11%。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇦🇺</span>
+                <div class="cc-names"><div class="cc-name-ja">オーストラリア</div><div class="cc-name-en">Australia</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~87</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">FIAL（2021）</div>
+              <div class="cc-note" lang="ja">2030年食料廃棄物半減目標（国家食品廃棄物戦略）。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇳🇿</span>
+                <div class="cc-names"><div class="cc-name-ja">ニュージーランド</div><div class="cc-name-en">New Zealand</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~83</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">MfE 概算</div>
+              <div class="cc-note" lang="ja">ネット・ゼロ政策の一環。農業廃棄・バイオガス利用が進む。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇲🇾</span>
+                <div class="cc-names"><div class="cc-name-ja">マレーシア</div><div class="cc-name-en">Malaysia</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value no-data">—</span>
+              </div>
+              <div class="cc-source">データ準備中</div>
+              <div class="cc-note" lang="ja">ラマダン期の食品廃棄急増が社会問題。政策議論が活発化。</div>
+            </div>
+
+          </div><!-- /country-grid Asia -->
+
+          <!-- Europe -->
+          <div class="region-label">ヨーロッパ / Europe</div>
+          <div class="country-grid">
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇬🇧</span>
+                <div class="cc-names"><div class="cc-name-ja">イギリス</div><div class="cc-name-en">UK</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~77</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">WRAP（2021）</div>
+              <div class="cc-note" lang="ja">WRAPによる詳細データ基盤が世界最高水準。家庭廃棄70%。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇩🇪</span>
+                <div class="cc-names"><div class="cc-name-ja">ドイツ</div><div class="cc-name-en">Germany</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~75</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">BMEL/WWF（2021）</div>
+              <div class="cc-note" lang="ja">2030年半減目標。Tafel（フードバンク）が1993年創設で歴史長い。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇫🇷</span>
+                <div class="cc-names"><div class="cc-name-ja">フランス</div><div class="cc-name-en">France</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~79</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">ADEME（2019）</div>
+              <div class="cc-note" lang="ja">2016年食品廃棄禁止法（Loi Garot）：スーパーの廃棄に罰則規定。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇮🇹</span>
+                <div class="cc-names"><div class="cc-name-ja">イタリア</div><div class="cc-name-en">Italy</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~67</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">Barilla CFN 概算</div>
+              <div class="cc-note" lang="ja">2016年食品廃棄物削減法：寄附を義務でなく奨励する「ニンジン型」。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇪🇸</span>
+                <div class="cc-names"><div class="cc-name-ja">スペイン</div><div class="cc-name-en">Spain</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~58</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">MAPA（2020）</div>
+              <div class="cc-note" lang="ja">食品廃棄物対策法成立（2022年）。飲食店への持ち帰り容器提供義務。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇳🇱</span>
+                <div class="cc-names"><div class="cc-name-ja">オランダ</div><div class="cc-name-en">Netherlands</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~46</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">WUR 概算</div>
+              <div class="cc-note" lang="ja">先進的なデータ収集・政策が奏功。EU内でも削減率が高い国の一つ。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇸🇪</span>
+                <div class="cc-names"><div class="cc-name-ja">スウェーデン</div><div class="cc-name-en">Sweden</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~82</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">SMED（2020）</div>
+              <div class="cc-note" lang="ja">「手前より前」キャンペーンが普及。廃棄物ゼロ社会目標と連動。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇩🇰</span>
+                <div class="cc-names"><div class="cc-name-ja">デンマーク</div><div class="cc-name-en">Denmark</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~45</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">DCS 概算</div>
+              <div class="cc-note" lang="ja">「Stop Wasting Food」運動で2010年代に25%以上削減を達成。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇳🇴</span>
+                <div class="cc-names"><div class="cc-name-ja">ノルウェー</div><div class="cc-name-en">Norway</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~71</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">Matvett 概算</div>
+              <div class="cc-note" lang="ja">Bransjeavtale（官民業界協定）方式が特徴。毎年進捗を公表。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇵🇱</span>
+                <div class="cc-names"><div class="cc-name-ja">ポーランド</div><div class="cc-name-en">Poland</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~57</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">GUS 概算</div>
+              <div class="cc-note" lang="ja">EU食品廃棄物計測指令（SU-FWR）への対応を進める。</div>
+            </div>
+
+          </div><!-- /country-grid Europe -->
+
+          <!-- Americas -->
+          <div class="region-label">北米・中南米 / Americas</div>
+          <div class="country-grid">
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇺🇸</span>
+                <div class="cc-names"><div class="cc-name-ja">アメリカ合衆国</div><div class="cc-name-en">USA</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~103</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">ReFED（2021）</div>
+              <div class="cc-note" lang="ja">2022年に2030年半減目標を宣言（Biden政権）。絶対量は世界最大級。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇨🇦</span>
+                <div class="cc-names"><div class="cc-name-ja">カナダ</div><div class="cc-name-en">Canada</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~79</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">NFB（2019）</div>
+              <div class="cc-note" lang="ja">Federal-Provincial連携で食品廃棄物削減計画。フードバンク普及。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇧🇷</span>
+                <div class="cc-names"><div class="cc-name-ja">ブラジル</div><div class="cc-name-en">Brazil</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~65</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">EMBRAPA 概算</div>
+              <div class="cc-note" lang="ja">農業生産大国。収穫・流通段階のロスが大きい。MESA BRASIL が活動。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇲🇽</span>
+                <div class="cc-names"><div class="cc-name-ja">メキシコ</div><div class="cc-name-en">Mexico</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~53</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">FAO 概算</div>
+              <div class="cc-note" lang="ja">NOM（国家規格）整備中。食料廃棄の法的定義が課題。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇦🇷</span>
+                <div class="cc-names"><div class="cc-name-ja">アルゼンチン</div><div class="cc-name-en">Argentina</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~61</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">農業省 概算</div>
+              <div class="cc-note" lang="ja">食料生産大国だが自国の廃棄削減政策は途上。BANQUETSプロジェクト。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇨🇱</span>
+                <div class="cc-names"><div class="cc-name-ja">チリ</div><div class="cc-name-en">Chile</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value no-data">—</span>
+              </div>
+              <div class="cc-source">データ準備中</div>
+              <div class="cc-note" lang="ja">廃棄物管理法に食品廃棄の条項。サーキュラーエコノミー計画と連携。</div>
+            </div>
+
+          </div><!-- /country-grid Americas -->
+
+          <!-- Africa & Middle East -->
+          <div class="region-label">アフリカ・中東・その他 / Africa, Middle East &amp; Others</div>
+          <div class="country-grid">
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇿🇦</span>
+                <div class="cc-names"><div class="cc-name-ja">南アフリカ</div><div class="cc-name-en">South Africa</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~49</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">CSIR（2017）</div>
+              <div class="cc-note" lang="ja">サプライチェーン全体の推計。食料安全保障との関連が特に重要。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇪🇬</span>
+                <div class="cc-names"><div class="cc-name-ja">エジプト</div><div class="cc-name-en">Egypt</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value no-data">—</span>
+              </div>
+              <div class="cc-source">データ準備中</div>
+              <div class="cc-note" lang="ja">輸入依存度が高く食料安保上の食品廃棄削減が急務。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇦🇪</span>
+                <div class="cc-names"><div class="cc-name-ja">アラブ首長国連邦</div><div class="cc-name-en">UAE</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value no-data">—</span>
+              </div>
+              <div class="cc-source">調査中</div>
+              <div class="cc-note" lang="ja">国家食品廃棄物削減イニシアティブ推進中。ラマダン期の廃棄が課題。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇹🇷</span>
+                <div class="cc-names"><div class="cc-name-ja">トルコ</div><div class="cc-name-en">Türkiye</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~72</span>
+                <span class="cc-unit">kg/人/年</span>
+              </div>
+              <div class="cc-source">UNEP 概算</div>
+              <div class="cc-note" lang="ja">EU加盟候補国としてEU食品廃棄物指令との整合を推進。</div>
+            </div>
+
+          </div><!-- /country-grid Africa -->
+
+          <div class="method-note" style="margin-top: var(--sp-xl);">
+            <strong>方法論上の注意：</strong>
+            各国の数値は計測方法・対象範囲（農業起源ロス・加工・小売・家庭廃棄の含有範囲）・調査年次が異なります。
+            直接比較の際は出典の計測方法を確認してください。FAO・UNEP推計は概算であり、国内統計と乖離する場合があります。
+            「—」は当ポータルで未収集または信頼性の高いデータが公表されていない国です。
+          </div>
+        </div><!-- /fl-s1 -->
+
+        <!-- ---- STAGE 2: Japan Time-Series Chart ---- -->
+        <div class="stage-panel" id="fl-s2" data-group="fl" data-chart="chart-fl-trend">
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h3 lang="ja">日本の食品ロス量推移（2012〜2022年度）</h3>
+              <span class="chart-period">FY2012–2022 | 単位：万トン</span>
+            </div>
+            <div class="chart-toggles">
+              <button class="chart-toggle-btn active" onclick="toggleFlSeries(this, 0)">総量</button>
+              <button class="chart-toggle-btn active" onclick="toggleFlSeries(this, 1)">事業系</button>
+              <button class="chart-toggle-btn active" onclick="toggleFlSeries(this, 2)">家庭系</button>
+              <button class="chart-toggle-btn active" onclick="toggleFlSeries(this, 3)">2030年目標ライン</button>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="chart-fl-trend"></canvas>
+            </div>
+            <div class="chart-source">出典: 農林水産省・環境省「食品廃棄物等の発生量及び食品ロス量推計値」各年度版</div>
+            <div class="chart-note">※ 2017年度より推計方法を一部改定。過去データは改訂前の数値を使用。</div>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>年度</th>
+                  <th>総量（万トン）</th>
+                  <th>事業系</th>
+                  <th>家庭系</th>
+                  <th>一人当たり（kg）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>2012（平成24）</td><td>642</td><td>339</td><td>303</td><td>50</td></tr>
+                <tr><td>2013（平成25）</td><td>632</td><td>336</td><td>296</td><td>50</td></tr>
+                <tr><td>2014（平成26）</td><td>621</td><td>330</td><td>291</td><td>49</td></tr>
+                <tr><td>2015（平成27）</td><td>612</td><td>314</td><td>298</td><td>48</td></tr>
+                <tr><td>2016（平成28）</td><td>643</td><td>352</td><td>291</td><td>51</td></tr>
+                <tr><td>2017（平成29）</td><td>612</td><td>328</td><td>284</td><td>48</td></tr>
+                <tr><td>2018（平成30）</td><td>600</td><td>324</td><td>276</td><td>47</td></tr>
+                <tr><td>2019（令和元）</td><td>570</td><td>309</td><td>261</td><td>45</td></tr>
+                <tr><td>2020（令和 2）</td><td>522</td><td>275</td><td>247</td><td>41</td></tr>
+                <tr><td>2021（令和 3）</td><td>523</td><td>279</td><td>244</td><td>42</td></tr>
+                <tr class="highlight-row"><td>2022（令和 4）</td><td>472</td><td>236</td><td>236</td><td>38</td></tr>
+                <tr class="target-row"><td>2030年度 目標</td><td>245</td><td>—</td><td>—</td><td>~20</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- /fl-s2 -->
+
+        <!-- ---- STAGE 3: International Comparison Chart ---- -->
+        <div class="stage-panel" id="fl-s3" data-group="fl" data-chart="chart-fl-intl">
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h3 lang="ja">食品ロス量 国際比較（一人当たり、同年比較）</h3>
+              <span class="chart-period">kg/capita/year | 最新利用可能年データ</span>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="chart-fl-intl"></canvas>
+            </div>
+            <div class="chart-source">出典: MAFF・MOE（Japan）, ReFED（USA）, WRAP（UK）, BMEL/WWF（Germany）, ADEME（France）, KEI（South Korea）, NEA（Singapore）</div>
+          </div>
+          <div class="method-note">
+            <strong>方法論上の注意：</strong>
+            各国の計測方法・対象範囲が大きく異なるため、数値の単純比較には慎重が必要です。
+            日本の値（38 kg）は農林水産省・環境省推計（事業系＋家庭系）÷人口。
+            欧米の値は小売・家庭廃棄を中心に計測されており、農業・製造段階を含むケースもある。
+          </div>
+        </div><!-- /fl-s3 -->
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2: フードバンク取扱量 / Food Bank QFD
+         ============================================================ -->
+    <section id="food-bank" class="data-section" style="background: var(--c-surface);">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>フードバンク取扱量（QFD） <span class="en-sub">Food Bank Quantity of Food Distributed</span></h2>
+        </div>
+        <p class="section-lead" lang="ja">
+          フードバンクが受け取り・配分した食品量（QFD: Quantity of Food Distributed）。
+          食品ロス削減と食料セーフティネットの両面から重要な指標。
+          日本では2000年代から急速に拡大し、コロナ禍（2020年）で急増。
+        </p>
+
+        <!-- Stage Tabs -->
+        <div class="stage-nav" data-group="fb" role="tablist" aria-label="フードバンク データステージ">
+          <button class="stage-tab active" role="tab" aria-selected="true"
+                  data-target="fb-s1" data-group="fb">
+            <span class="stage-num">STAGE 1</span>
+            <span class="stage-label" lang="ja">各国テキスト情報</span>
+          </button>
+          <button class="stage-tab" role="tab" aria-selected="false"
+                  data-target="fb-s2" data-group="fb">
+            <span class="stage-num">STAGE 2</span>
+            <span class="stage-label" lang="ja">日本の推移グラフ</span>
+          </button>
+          <button class="stage-tab" role="tab" aria-selected="false"
+                  data-target="fb-s3" data-group="fb">
+            <span class="stage-num">STAGE 3</span>
+            <span class="stage-label" lang="ja">同年国際比較グラフ</span>
+          </button>
+        </div>
+
+        <!-- ---- FB STAGE 1: Country Text ---- -->
+        <div class="stage-panel active" id="fb-s1" data-group="fb">
+
+          <!-- Japan Featured -->
+          <div class="country-japan country-japan-fb">
+            <div class="cj-header">
+              <span class="cj-flag">🇯🇵</span>
+              <div class="cj-title">
+                <h3 lang="ja">日本のフードバンク / Food Banks in Japan</h3>
+                <span lang="ja">フードバンク概況（2023年度）</span>
+              </div>
+              <span class="cj-badge">FEATURED</span>
+            </div>
+
+            <div class="cj-stat">
+              <div class="cj-stat-value">244<span class="cj-stat-unit" lang="ja">団体</span></div>
+              <div class="cj-stat-label" lang="ja">フードバンク団体数（2023年）</div>
+            </div>
+            <div class="cj-stat">
+              <div class="cj-stat-value">~27,100<span class="cj-stat-unit">t</span></div>
+              <div class="cj-stat-label" lang="ja">年間取扱量推計（2023年度）</div>
+            </div>
+            <div class="cj-stat">
+              <div class="cj-stat-value">2000<span class="cj-stat-unit" lang="ja">年</span></div>
+              <div class="cj-stat-label" lang="ja">日本初のフードバンク設立（セカンドハーベスト・ジャパン）</div>
+            </div>
+
+            <div class="cj-info">
+              <dl>
+                <dt lang="ja">主要支援政策</dt>
+                <dd lang="ja">農林水産省「食品寄附ガイドライン」（2022年）・フードバンク等活動促進事業（補助金）</dd>
+                <dt lang="ja">関連法規</dt>
+                <dd lang="ja">食品ロス削減推進法・生活困窮者自立支援法・子どもの貧困対策法</dd>
+                <dt lang="ja">主な受益者</dt>
+                <dd lang="ja">こども食堂・生活困窮者支援施設・母子家庭・外国人支援団体・福祉施設等</dd>
+                <dt lang="ja">課題</dt>
+                <dd lang="ja">取扱食品の品質管理・保管施設・人材不足・寄附企業の免税インセンティブの限界</dd>
+                <dt lang="ja">COVID-19の影響</dt>
+                <dd lang="ja">2020年：団体数・取扱量ともに急増。社会的孤立・失業者支援ニーズが拡大。</dd>
+              </dl>
+            </div>
+          </div>
+
+          <div class="region-label">主要国のフードバンク概況 / Food Bank Overview by Country</div>
+          <div class="country-grid">
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇺🇸</span>
+                <div class="cc-names"><div class="cc-name-ja">アメリカ</div><div class="cc-name-en">USA</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~1.9M</span>
+                <span class="cc-unit">tonnes/yr</span>
+              </div>
+              <div class="cc-source">Feeding America（2022）</div>
+              <div class="cc-note" lang="ja">Feeding America加盟200+の食品銀行・6万以上のパントリー。規模は世界最大。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇩🇪</span>
+                <div class="cc-names"><div class="cc-name-ja">ドイツ</div><div class="cc-name-en">Germany</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~265,000</span>
+                <span class="cc-unit">tonnes/yr</span>
+              </div>
+              <div class="cc-source">Tafel Deutschland（2022）</div>
+              <div class="cc-note" lang="ja">Tafel（食卓）は1993年創設。現在960拠点以上。ヨーロッパ最大規模。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇫🇷</span>
+                <div class="cc-names"><div class="cc-name-ja">フランス</div><div class="cc-name-en">France</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~150,000</span>
+                <span class="cc-unit">tonnes/yr</span>
+              </div>
+              <div class="cc-source">Banques Alimentaires（2022）</div>
+              <div class="cc-note" lang="ja">食品廃棄禁止法（2016年）施行後、スーパー余剰食品の寄附が大幅増。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇬🇧</span>
+                <div class="cc-names"><div class="cc-name-ja">イギリス</div><div class="cc-name-en">UK</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~133,000</span>
+                <span class="cc-unit">tonnes/yr</span>
+              </div>
+              <div class="cc-source">FareShare（2022）</div>
+              <div class="cc-note" lang="ja">FareShareが主要組織。Trussell Trustとの連携で全国ネットワーク。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇨🇦</span>
+                <div class="cc-names"><div class="cc-name-ja">カナダ</div><div class="cc-name-en">Canada</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~200,000</span>
+                <span class="cc-unit">tonnes/yr</span>
+              </div>
+              <div class="cc-source">Food Banks Canada（2022）</div>
+              <div class="cc-note" lang="ja">1981年設立の歴史長い組織。コロナ禍で利用者が過去最多を更新。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇦🇺</span>
+                <div class="cc-names"><div class="cc-name-ja">オーストラリア</div><div class="cc-name-en">Australia</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~195,000</span>
+                <span class="cc-unit">tonnes/yr</span>
+              </div>
+              <div class="cc-source">Foodbank Australia（2022）</div>
+              <div class="cc-note" lang="ja">Foodbank Australiaが各州で活動。企業寄附税制優遇が充実。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇳🇱</span>
+                <div class="cc-names"><div class="cc-name-ja">オランダ</div><div class="cc-name-en">Netherlands</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~36,000</span>
+                <span class="cc-unit">tonnes/yr</span>
+              </div>
+              <div class="cc-source">Voedselbank NL（2022）</div>
+              <div class="cc-note" lang="ja">「Voedselverspilling Rijp voor Oplossingen」プロジェクトとも連携。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇰🇷</span>
+                <div class="cc-names"><div class="cc-name-ja">韓国</div><div class="cc-name-en">South Korea</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value no-data">—</span>
+              </div>
+              <div class="cc-source">データ準備中</div>
+              <div class="cc-note" lang="ja">푸드뱅크（フードバンク）制度は政府主導。全国に1,800拠点超。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🇮🇹</span>
+                <div class="cc-names"><div class="cc-name-ja">イタリア</div><div class="cc-name-en">Italy</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">~100,000</span>
+                <span class="cc-unit">tonnes/yr</span>
+              </div>
+              <div class="cc-source">Banco Alimentare（2022）</div>
+              <div class="cc-note" lang="ja">1989年設立の歴史ある団体。年次「Colletta Alimentare」募金活動が有名。</div>
+            </div>
+
+            <div class="country-card">
+              <div class="cc-head">
+                <span class="cc-flag">🌐</span>
+                <div class="cc-names"><div class="cc-name-ja">グローバルネットワーク</div><div class="cc-name-en">GFN / FEBA</div></div>
+              </div>
+              <div class="cc-metric">
+                <span class="cc-value">50+</span>
+                <span class="cc-unit">countries</span>
+              </div>
+              <div class="cc-source">Global FoodBanking Network</div>
+              <div class="cc-note" lang="ja">GFNは50か国以上のフードバンクを支援。FEBAはヨーロッパ40か国加盟。</div>
+            </div>
+
+          </div><!-- /FB country grid -->
+
+          <div class="method-note" style="margin-top: var(--sp-xl);">
+            <strong>QFD（取扱量）の定義：</strong>
+            各団体・国によって「取扱量」の定義（受領ベース vs 配布ベース）・計測期間・食品種別の範囲が異なります。
+            日本の数値は農林水産省調査に基づく推計値（フードバンク団体数の増加に伴い定期改訂）。
+          </div>
+        </div><!-- /fb-s1 -->
+
+        <!-- ---- FB STAGE 2: Japan Time-Series Chart ---- -->
+        <div class="stage-panel" id="fb-s2" data-group="fb" data-chart="chart-fb-trend">
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h3 lang="ja">日本のフードバンク 取扱量・団体数の推移（2015〜2023年度）</h3>
+              <span class="chart-period">2015–2023 | 単位：トン / 団体</span>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="chart-fb-trend"></canvas>
+            </div>
+            <div class="chart-source">出典: 農林水産省「フードバンク実態調査」各年度版（一部推計を含む）</div>
+            <div class="chart-note">※ 2020年のコロナ禍による急増に注目。取扱量は配布ベースの推計。</div>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>年度</th>
+                  <th>団体数</th>
+                  <th>取扱量（トン）</th>
+                  <th>前年比</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>2015</td><td>77</td><td>2,500</td><td>—</td></tr>
+                <tr><td>2016</td><td>77</td><td>3,200</td><td>+28%</td></tr>
+                <tr><td>2017</td><td>100</td><td>4,100</td><td>+28%</td></tr>
+                <tr><td>2018</td><td>100</td><td>5,800</td><td>+41%</td></tr>
+                <tr><td>2019</td><td>113</td><td>7,200</td><td>+24%</td></tr>
+                <tr><td>2020</td><td>178</td><td>14,500</td><td class="delta-down" style="color:#2D7A40;">+101%（COVID）</td></tr>
+                <tr><td>2021</td><td>213</td><td>19,800</td><td>+37%</td></tr>
+                <tr><td>2022</td><td>229</td><td>23,400</td><td>+18%</td></tr>
+                <tr class="highlight-row"><td>2023（推計）</td><td>244</td><td>27,100</td><td>+16%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- /fb-s2 -->
+
+        <!-- ---- FB STAGE 3: International Comparison Chart ---- -->
+        <div class="stage-panel" id="fb-s3" data-group="fb" data-chart="chart-fb-intl">
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h3 lang="ja">フードバンク取扱量 国際比較（一人当たり換算）</h3>
+              <span class="chart-period">kg/capita/year | 最新利用可能年データ</span>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="chart-fb-intl"></canvas>
+            </div>
+            <div class="chart-source">出典: Feeding America・FareShare・Tafel・Banques Alimentaires・Foodbank Australia・農林水産省（各国公表値÷人口）</div>
+          </div>
+          <div class="method-note">
+            <strong>解釈上の注意：</strong>
+            一人当たり取扱量が大きい国は「食品廃棄の削減がうまくいっている」とも「貧困層が多い」とも解釈できます。
+            QFDは食品ロス削減の代理指標であると同時に、食料不安・貧困の指標でもあります。
+            日本（~0.22 kg/人）は先進国の中では極めて小さく、フードバンクセクターの成長余地が大きいことを示します。
+          </div>
+        </div><!-- /fb-s3 -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-title">フードロス・ポータル</p>
+        <p class="footer-subtitle">Food Loss Portal Japan</p>
+        <p class="footer-tagline">食品ロス（ゼロ）は目標ではない。</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-col">
+          <h4>コンテンツ</h4>
+          <ul>
+            <li><a href="data.html">データ / Data</a></li>
+            <li><a href="policy.html">政策 / Policy</a></li>
+            <li><a href="practice.html">実践 / Practice</a></li>
+            <li><a href="research.html">研究 / Research</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>情報</h4>
+          <ul>
+            <li><a href="education.html">教育 / Education</a></li>
+            <li><a href="outreach.html">発信・業績</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 フードロス・ポータル Japan. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== CHART.JS ========== -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script>
+  /* ---- Shared palette ---- */
+  const C = {
+    primary:  '#162E20',
+    mid:      '#2D6A4F',
+    light:    '#52B788',
+    accent:   '#C8793C',
+    accentL:  '#E09B5C',
+    red:      '#B94040',
+    blue:     '#2563EB',
+    blueL:    '#93C5FD',
+    gray:     '#8C8C8C',
+    gridLine: 'rgba(0,0,0,0.07)',
+  };
+
+  const FONT = {
+    family: "'Inter', 'Noto Sans JP', sans-serif",
+    size: 12,
+  };
+
+  Chart.defaults.font.family = FONT.family;
+  Chart.defaults.font.size   = FONT.size;
+  Chart.defaults.color       = '#505050';
+
+  /* ---- Lazy init registry ---- */
+  const chartInst = {};
+
+  /* ---- Stage switching ---- */
+  document.querySelectorAll('.stage-nav').forEach(nav => {
+    const group = nav.dataset.group;
+    nav.querySelectorAll('.stage-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        nav.querySelectorAll('.stage-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const targetId = tab.dataset.target;
+        document.querySelectorAll(`.stage-panel[data-group="${group}"]`).forEach(panel => {
+          const isActive = panel.id === targetId;
+          panel.classList.toggle('active', isActive);
+          if (isActive && panel.dataset.chart) {
+            setTimeout(() => initChart(panel.dataset.chart), 60);
+          }
+        });
+      });
+    });
+  });
+
+  function initChart(id) {
+    if (chartInst[id]) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+    const cfgs = {
+      'chart-fl-trend': flTrendConfig(),
+      'chart-fl-intl':  flIntlConfig(),
+      'chart-fb-trend': fbTrendConfig(),
+      'chart-fb-intl':  fbIntlConfig(),
+    };
+    if (cfgs[id]) chartInst[id] = new Chart(el, cfgs[id]);
+  }
+
+  /* ---- Series toggle (FL trend) ---- */
+  function toggleFlSeries(btn, datasetIdx) {
+    btn.classList.toggle('active');
+    const chart = chartInst['chart-fl-trend'];
+    if (!chart) return;
+    const meta = chart.getDatasetMeta(datasetIdx);
+    meta.hidden = !btn.classList.contains('active');
+    chart.update();
+  }
+
+  /* ============================================================
+     CHART 1: FL Japan Time-Series
+     ============================================================ */
+  function flTrendConfig() {
+    const years = ['2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022'];
+    return {
+      type: 'line',
+      data: {
+        labels: years,
+        datasets: [
+          {
+            label: '食品ロス総量（万トン）',
+            data: [642, 632, 621, 612, 643, 612, 600, 570, 522, 523, 472],
+            borderColor: C.primary,
+            backgroundColor: 'rgba(22,46,32,0.12)',
+            fill: true,
+            tension: 0.35,
+            borderWidth: 2.5,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+          },
+          {
+            label: '事業系（万トン）',
+            data: [339, 336, 330, 314, 352, 328, 324, 309, 275, 279, 236],
+            borderColor: C.accent,
+            backgroundColor: 'transparent',
+            fill: false,
+            tension: 0.35,
+            borderWidth: 1.8,
+            pointRadius: 3,
+            pointHoverRadius: 5,
+            borderDash: [],
+          },
+          {
+            label: '家庭系（万トン）',
+            data: [303, 296, 291, 298, 291, 284, 276, 261, 247, 244, 236],
+            borderColor: C.mid,
+            backgroundColor: 'transparent',
+            fill: false,
+            tension: 0.35,
+            borderWidth: 1.8,
+            pointRadius: 3,
+            pointHoverRadius: 5,
+            borderDash: [5, 4],
+          },
+          {
+            label: '2030年目標ライン（245万トン）',
+            data: [245, 245, 245, 245, 245, 245, 245, 245, 245, 245, 245],
+            borderColor: C.red,
+            backgroundColor: 'transparent',
+            fill: false,
+            borderWidth: 1.5,
+            borderDash: [8, 5],
+            pointRadius: 0,
+            tension: 0,
+          },
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { boxWidth: 24, padding: 16, font: { size: 11 } }
+          },
+          tooltip: {
+            callbacks: {
+              label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y} 万トン`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: C.gridLine },
+            ticks: { font: { family: "'Inter', sans-serif" } }
+          },
+          y: {
+            min: 200,
+            max: 700,
+            grid: { color: C.gridLine },
+            ticks: {
+              callback: v => v + ' 万t',
+              font: { family: "'Inter', sans-serif" }
+            },
+            title: { display: true, text: '万トン', font: { size: 11 } }
+          }
+        }
+      }
+    };
+  }
+
+  /* ============================================================
+     CHART 2: FL International Comparison
+     ============================================================ */
+  function flIntlConfig() {
+    const countries = ['インドネシア\n(Indonesia)', 'アメリカ\n(USA)', '中国\n(China)', 'オーストラリア\n(Australia)', 'スウェーデン\n(Sweden)', 'フランス\n(France)', 'カナダ\n(Canada)', 'イギリス\n(UK)', 'ドイツ\n(Germany)', 'タイ\n(Thailand)', 'イタリア\n(Italy)', 'アルゼンチン\n(Argentina)', 'トルコ\n(Türkiye)', 'スペイン\n(Spain)', 'インド\n(India)', 'シンガポール\n(Singapore)', '韓国\n(S.Korea)', '南アフリカ\n(S.Africa)', '日本\n(Japan)'];
+    const values  = [115, 103, 95, 87, 82, 79, 79, 77, 75, 77, 67, 61, 72, 58, 50, 55, 54, 49, 38];
+    const colors  = countries.map(c => c.includes('Japan') || c.includes('日本') ? C.accent : 'rgba(22,46,32,0.65)');
+    const borders = countries.map(c => c.includes('Japan') || c.includes('日本') ? C.primary : C.mid);
+
+    return {
+      type: 'bar',
+      data: {
+        labels: countries,
+        datasets: [{
+          label: '一人当たり食品ロス量（kg/人/年）',
+          data: values,
+          backgroundColor: colors,
+          borderColor: borders,
+          borderWidth: 1.5,
+          borderRadius: 3,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => ` ${ctx.parsed.x} kg/人/年`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: C.gridLine },
+            title: { display: true, text: 'kg / 人 / 年（概算）', font: { size: 11 } },
+            ticks: { font: { family: "'Inter', sans-serif" } }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { font: { family: "'Inter', 'Noto Sans JP', sans-serif", size: 11 } }
+          }
+        }
+      }
+    };
+  }
+
+  /* ============================================================
+     CHART 3: Food Bank Japan Time-Series
+     ============================================================ */
+  function fbTrendConfig() {
+    const years = ['2015','2016','2017','2018','2019','2020','2021','2022','2023(推)'];
+    return {
+      type: 'bar',
+      data: {
+        labels: years,
+        datasets: [
+          {
+            label: '取扱量（トン）',
+            data: [2500, 3200, 4100, 5800, 7200, 14500, 19800, 23400, 27100],
+            backgroundColor: years.map(y => y.includes('2020') ? C.accent : 'rgba(22,46,32,0.72)'),
+            borderColor: C.primary,
+            borderWidth: 1,
+            borderRadius: 3,
+            yAxisID: 'y',
+          },
+          {
+            label: '団体数',
+            data: [77, 77, 100, 100, 113, 178, 213, 229, 244],
+            type: 'line',
+            borderColor: C.accentL,
+            backgroundColor: 'transparent',
+            tension: 0.4,
+            borderWidth: 2.5,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+            fill: false,
+            yAxisID: 'y2',
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { boxWidth: 24, padding: 14, font: { size: 11 } }
+          },
+          tooltip: {
+            callbacks: {
+              label: ctx => ctx.datasetIndex === 0
+                ? ` 取扱量: ${ctx.parsed.y.toLocaleString()} t`
+                : ` 団体数: ${ctx.parsed.y} 団体`
+            }
+          }
+        },
+        scales: {
+          x: { grid: { color: C.gridLine } },
+          y: {
+            position: 'left',
+            grid: { color: C.gridLine },
+            title: { display: true, text: '取扱量（トン）', font: { size: 11 } },
+            ticks: {
+              callback: v => v >= 1000 ? (v/1000).toFixed(0) + 'k' : v,
+              font: { family: "'Inter', sans-serif" }
+            }
+          },
+          y2: {
+            position: 'right',
+            grid: { drawOnChartArea: false },
+            title: { display: true, text: '団体数', font: { size: 11 } },
+            min: 0,
+            max: 300,
+            ticks: { font: { family: "'Inter', sans-serif" } }
+          }
+        }
+      }
+    };
+  }
+
+  /* ============================================================
+     CHART 4: Food Bank International Comparison
+     ============================================================ */
+  function fbIntlConfig() {
+    const countries = ['アメリカ\n(USA)', 'カナダ\n(Canada)', 'オーストラリア\n(Australia)', 'ドイツ\n(Germany)', 'フランス\n(France)', 'イギリス\n(UK)', 'イタリア\n(Italy)', 'オランダ\n(Netherlands)', '日本\n(Japan)'];
+    // kg per capita = tonnes * 1000 / population
+    const values    = [5.7, 5.3, 7.6, 3.2, 2.3, 2.0, 1.7, 2.1, 0.22];
+    const colors    = countries.map(c => c.includes('Japan') || c.includes('日本') ? C.accent : 'rgba(22,46,32,0.65)');
+
+    return {
+      type: 'bar',
+      data: {
+        labels: countries,
+        datasets: [{
+          label: 'フードバンク取扱量（kg/人/年）',
+          data: values,
+          backgroundColor: colors,
+          borderColor: countries.map(c => c.includes('Japan') || c.includes('日本') ? C.primary : C.mid),
+          borderWidth: 1.5,
+          borderRadius: 3,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => ` ${ctx.parsed.x.toFixed(2)} kg/人/年`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: C.gridLine },
+            title: { display: true, text: 'kg / 人 / 年（取扱量÷人口）', font: { size: 11 } },
+            ticks: { font: { family: "'Inter', sans-serif" } }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { font: { family: "'Inter', 'Noto Sans JP', sans-serif", size: 11 } }
+          }
+        }
+      }
+    };
+  }
+
+  /* ---- Section jump active highlight ---- */
+  const jumpLinks = document.querySelectorAll('.section-jump a');
+  window.addEventListener('scroll', () => {
+    const pos = window.scrollY + 130;
+    jumpLinks.forEach(a => {
+      const tgt = document.querySelector(a.getAttribute('href'));
+      if (!tgt) return;
+      a.classList.toggle('active', tgt.offsetTop <= pos && tgt.offsetTop + tgt.offsetHeight > pos);
+    });
+  }, { passive: true });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

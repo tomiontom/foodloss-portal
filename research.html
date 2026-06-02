@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研究 / Research | フードロス・ポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .paper-list { display: flex; flex-direction: column; gap: 0; }
+    .paper-item {
+      display: grid;
+      grid-template-columns: 4.5rem 1fr;
+      gap: var(--sp-md);
+      padding: var(--sp-md) 0;
+      border-bottom: 1px solid var(--c-border);
+      align-items: start;
+    }
+    .paper-item:first-child { border-top: 1px solid var(--c-border); }
+    .paper-year {
+      font-family: var(--font-en);
+      font-size: 0.82rem;
+      color: var(--c-text-muted);
+      padding-top: 0.15rem;
+      white-space: nowrap;
+    }
+    .paper-title { font-size: 0.9rem; font-weight: 600; color: var(--c-primary); margin-bottom: 0.25rem; }
+    .paper-journal { font-size: 0.78rem; color: var(--c-text-sub); margin-bottom: 0.3rem; }
+    .paper-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .paper-tag {
+      font-family: var(--font-en);
+      font-size: 0.65rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .tag-supply  { background: #EAF0FB; color: #1A3A7A; }
+    .tag-consumer { background: #FFF0EA; color: #7A3A1A; }
+    .tag-policy2 { background: #EAF6EE; color: #1A5A2A; }
+    .tag-review  { background: #F5EAF9; color: #5A1A7A; }
+
+    .beer-game-box {
+      background: var(--c-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg) calc(var(--sp-lg) * 1.2);
+      color: rgba(255,255,255,0.85);
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: var(--sp-xl);
+      align-items: center;
+    }
+    .beer-game-box h3 { font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem; }
+    .beer-game-box p { font-size: 0.875rem; line-height: 1.8; margin-bottom: var(--sp-md); }
+    .beer-game-visual {
+      aspect-ratio: 4/3;
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.78rem;
+      font-family: var(--font-en);
+    }
+    @media (max-width: 640px) {
+      .beer-game-box { grid-template-columns: 1fr; }
+      .beer-game-visual { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-ja">フードロス・ポータル</span>
+        <span class="brand-en">Food Loss Portal Japan</span>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="data.html"><span lang="ja">データ</span> / Data</a></li>
+          <li><a href="policy.html"><span lang="ja">政策</span> / Policy</a></li>
+          <li><a href="practice.html"><span lang="ja">実践</span> / Practice</a></li>
+          <li><a href="research.html" class="active"><span lang="ja">研究</span> / Research</a></li>
+          <li><a href="education.html"><span lang="ja">教育</span> / Education</a></li>
+          <li><a href="outreach.html"><span lang="ja">発信・業績</span></a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-main" aria-label="メニューを開閉する">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span>研究</p>
+      <h1 class="page-title">
+        <span lang="ja">研究</span>
+        <span class="page-title-en">Research</span>
+      </h1>
+      <p class="page-desc" lang="ja">
+        食品ロスの発生メカニズム・行動経済学的アプローチ・サプライチェーン分析。
+        Beer Gameシミュレーションを通じた動的システム理解。
+      </p>
+    </div>
+  </section>
+
+  <nav class="section-jump" aria-label="セクションジャンプ">
+    <div class="container">
+      <ul>
+        <li><a href="#mechanism">発生メカニズム</a></li>
+        <li><a href="#papers">論文リスト</a></li>
+        <li><a href="#beergame">Beer Game</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 発生メカニズム -->
+    <section class="data-section" id="mechanism">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>食品ロスの発生メカニズム <span class="en-sub">Mechanisms of Food Loss Generation</span></h2>
+        </div>
+        <p class="section-lead">
+          食品ロスはサプライチェーンの各段階で異なるメカニズムにより発生する。
+          需要予測誤差・過剰発注・消費期限設定・消費者行動など複合的な要因が絡み合う。
+        </p>
+        <div class="coming-soon-grid">
+          <div class="cs-card" style="border-left-color: var(--c-accent);">
+            <div class="cs-card-tag">Supply Chain</div>
+            <h3 lang="ja">サプライチェーン起因ロス</h3>
+            <p lang="ja">過剰生産・過剰発注・納品期限（3分の1ルール）・返品慣行による発生メカニズム。</p>
+          </div>
+          <div class="cs-card" style="border-left-color: var(--c-primary-light);">
+            <div class="cs-card-tag">Consumer Behavior</div>
+            <h3 lang="ja">消費者行動起因ロス</h3>
+            <p lang="ja">過剰購入・計画性の欠如・賞味期限への過度な信頼・「手前どり」回避心理。</p>
+          </div>
+          <div class="cs-card">
+            <div class="cs-card-tag">Demand Forecasting</div>
+            <h3 lang="ja">需要予測誤差</h3>
+            <p lang="ja">ブルウィップ効果・季節変動・特売需要の予測誤差が発注量の不安定化を招く。</p>
+          </div>
+          <div class="cs-card">
+            <div class="cs-card-tag">Date Labeling</div>
+            <h3 lang="ja">日付表示制度の影響</h3>
+            <p lang="ja">消費期限・賞味期限の設定基準と実際の品質保持期間の乖離。2026年改正動向。</p>
+          </div>
+        </div>
+        <div class="placeholder-box" style="margin-top: var(--sp-lg);">
+          <div class="ph-icon">🔬</div>
+          <h3 lang="ja">発生メカニズム詳細解説（準備中）</h3>
+          <p lang="ja">各段階のメカニズムを図解・データで詳しく解説したコンテンツを掲載予定です。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 論文リスト -->
+    <section class="data-section" id="papers" style="background: var(--c-surface);">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>論文・研究成果 <span class="en-sub">Publications</span></h2>
+        </div>
+        <p class="section-lead">食品ロス関連の査読付き論文・学術書・学会発表（プレースホルダー）</p>
+
+        <div class="paper-list">
+          <div class="paper-item">
+            <div class="paper-year">2024</div>
+            <div>
+              <div class="paper-title">サプライチェーンにおけるブルウィップ効果と食品ロスの関係——小売業データを用いた実証分析</div>
+              <div class="paper-journal">食料・農業・農村政策研究 Vol.X No.X, pp.XX–XX</div>
+              <div class="paper-tags">
+                <span class="paper-tag tag-supply">Supply Chain</span>
+                <span class="paper-tag tag-review">Peer-reviewed</span>
+              </div>
+            </div>
+          </div>
+          <div class="paper-item">
+            <div class="paper-year">2023</div>
+            <div>
+              <div class="paper-title">消費者の「てまえどり」行動意図に影響する要因——計画的行動理論を用いたアンケート分析</div>
+              <div class="paper-journal">農業経済研究 Vol.X No.X, pp.XX–XX</div>
+              <div class="paper-tags">
+                <span class="paper-tag tag-consumer">Consumer</span>
+                <span class="paper-tag tag-review">Peer-reviewed</span>
+              </div>
+            </div>
+          </div>
+          <div class="paper-item">
+            <div class="paper-year">2022</div>
+            <div>
+              <div class="paper-title">食品ロス削減推進法の施行効果——都道府県計画策定状況と削減量変化の分析</div>
+              <div class="paper-journal">農林業問題研究 Vol.X No.X, pp.XX–XX</div>
+              <div class="paper-tags">
+                <span class="paper-tag tag-policy2">Policy</span>
+                <span class="paper-tag tag-review">Peer-reviewed</span>
+              </div>
+            </div>
+          </div>
+          <div class="paper-item">
+            <div class="paper-year">2021</div>
+            <div>
+              <div class="paper-title">Beer Game を用いた食品サプライチェーン教育——学習効果の検証</div>
+              <div class="paper-journal">農業情報研究 Vol.X No.X, pp.XX–XX</div>
+              <div class="paper-tags">
+                <span class="paper-tag tag-supply">Supply Chain</span>
+                <span class="paper-tag tag-review">Peer-reviewed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin-top: var(--sp-lg); font-size: 0.78rem; color: var(--c-text-muted);">
+          ※ 論文リストは準備中です。著書・完全論文リストは<a href="outreach.html" style="color: var(--c-primary-light);">発信・業績ページ</a>に掲載予定。
+        </p>
+      </div>
+    </section>
+
+    <!-- Beer Game -->
+    <section class="data-section" id="beergame">
+      <div class="container">
+        <div class="data-section-header">
+          <h2>Beer Game シミュレーション <span class="en-sub">Beer Game Simulation</span></h2>
+        </div>
+        <div class="beer-game-box">
+          <div>
+            <h3>ブルウィップ効果と食品ロス</h3>
+            <p lang="ja">
+              Beer Gameは1960年代にMITのジェイ・フォレスター教授が開発したサプライチェーン管理シミュレーションゲーム。
+              消費者需要のわずかな変動がサプライチェーン上流に向かって増幅し、過剰在庫・欠品・廃棄を生む「ブルウィップ効果」を体験的に学ぶことができる。
+              食品ロス教育・研究への応用として、当研究では食品サプライチェーン版Beer Gameを開発・実施している。
+            </p>
+            <div class="method-note" style="margin-top: 0; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.7);">
+              <strong style="color: var(--c-accent-light);">研究トピック：</strong>
+              Beer Game参加者の意思決定データから、どのような判断パターンが食品ロスを増減させるかを分析。
+            </div>
+          </div>
+          <div class="beer-game-visual">Simulation diagram placeholder</div>
+        </div>
+        <div class="placeholder-box" style="margin-top: var(--sp-lg);">
+          <div class="ph-icon">🎮</div>
+          <h3 lang="ja">オンライン Beer Game（準備中）</h3>
+          <p lang="ja">ブラウザ上でプレイできる食品サプライチェーン版 Beer Game を実装予定です。</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-title">フードロス・ポータル</p>
+        <p class="footer-subtitle">Food Loss Portal Japan</p>
+        <p class="footer-tagline">食品ロス（ゼロ）は目標ではない。</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-col">
+          <h4>コンテンツ</h4>
+          <ul>
+            <li><a href="data.html">データ / Data</a></li>
+            <li><a href="policy.html">政策 / Policy</a></li>
+            <li><a href="practice.html">実践 / Practice</a></li>
+            <li><a href="research.html">研究 / Research</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>情報</h4>
+          <ul>
+            <li><a href="education.html">教育 / Education</a></li>
+            <li><a href="outreach.html">発信・業績</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 フードロス・ポータル Japan. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
